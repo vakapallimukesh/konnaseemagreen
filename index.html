@@ -1,464 +1,1094 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Konaseema Greens – Customize Plant Gift</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+  <title>Konaseema Greens - Bespoke Plant Gifting Customizer</title>
+  
+  <!-- Tailwind CSS CDN with forms and container queries -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css">
+
+  <!-- Tailwind Custom Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              950: '#0A1E14',
+              900: '#0F2D1F',
+              850: '#133827',
+              800: '#163E2B',
+              700: '#1F523A',
+              600: '#2A694C',
+            },
+            gold: {
+              300: '#EAD7A6',
+              400: '#D8BC7D',
+              500: '#C5A059',
+              600: '#A9843E',
+              700: '#87672B',
+            },
+            cream: {
+              50: '#FDFBF7',
+              100: '#FBF9F5',
+              200: '#F5F1EA',
+              300: '#ECE6DA',
+              400: '#DFD7C7',
+            },
+            charcoal: {
+              900: '#191E1B',
+              700: '#3D4540',
+              500: '#67716B',
+              400: '#8F9993',
+            }
+          },
+          fontFamily: {
+            serif: ['Newsreader', 'Georgia', 'serif'],
+            sans: ['DM Sans', 'Plus Jakarta Sans', '-apple-system', 'sans-serif'],
+          },
+          boxShadow: {
+            'luxury': '0 12px 30px -8px rgba(15, 45, 31, 0.08), 0 4px 12px -2px rgba(197, 160, 89, 0.08)',
+            'gold-glow': '0 0 20px rgba(197, 160, 89, 0.25)',
+            'dock': '0 -8px 24px -4px rgba(15, 45, 31, 0.06), 0 -2px 6px rgba(0,0,0,0.02)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-sans: 'DM Sans', sans-serif;
+    }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    h1, h2, h3, .font-serif {
+      font-family: 'Newsreader', Georgia, serif;
+    }
+    .brand-title {
+      font-family: 'Cinzel', 'Newsreader', serif;
+      letter-spacing: 0.12em;
+    }
+    @keyframes goldShimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .gold-gradient-text {
+      background: linear-gradient(90deg, #9C7A36 0%, #D8BA7A 50%, #9C7A36 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: goldShimmer 7s ease-in-out infinite;
+    }
+    .smooth-scroll {
+      -webkit-overflow-scrolling: touch;
+    }
+    /* Cart drawer transitions */
+    .cart-drawer-backdrop {
+      transition: opacity 0.3s ease;
+    }
+    .cart-drawer-panel {
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  </style>
 </head>
-<body>
+<body class="bg-cream-100 text-charcoal-900 font-sans antialiased selection:bg-gold-500 selection:text-white pb-32">
 
-  <!-- Mobile App Wrapper -->
-  <div class="mobile-app-container">
-
-    <!-- Top Brand Header with Logo -->
-    <header class="app-header">
-      <div class="header-left">
-        <img src="logo.png" alt="Konaseema Greens Logo" class="brand-logo">
-        <div class="brand-info">
-          <h1 class="brand-name">Konaseema Greens</h1>
-          <span class="brand-tagline">Custom Plant Gifting</span>
+  <!-- BEGIN: MainHeader -->
+  <header class="sticky top-0 z-40 bg-forest-900/95 backdrop-blur-md border-b border-forest-800 text-white transition-all shadow-md">
+    <div class="max-w-md mx-auto px-4 py-3 flex items-center justify-between">
+      <!-- Brand Logo & Atelier Subtitle -->
+      <div class="flex items-center gap-2.5">
+        <img src="logo.png" alt="Konaseema Greens Logo" class="w-9 h-9 rounded-full object-cover border border-gold-400/40 shadow-xs bg-forest-950">
+        <div>
+          <div class="flex items-center gap-1.5 mb-0.5">
+            <h1 class="font-serif text-base tracking-wider uppercase font-semibold text-cream-50 brand-title">Konaseema Greens</h1>
+          </div>
+          <p class="text-[9px] font-medium tracking-[0.22em] text-gold-400 uppercase">Bespoke Botanical Gifting</p>
         </div>
       </div>
-    </header>
+      
+      <!-- Mini Cart Button with Counter -->
+      <button id="headerCartBtn" aria-label="View Shopping Cart" class="relative w-9 h-9 rounded-full flex items-center justify-center text-cream-200 hover:text-gold-400 hover:bg-forest-800/80 transition-colors" type="button">
+        <i class="ph ph-handbag text-xl"></i>
+        <span id="headerCartCount" class="absolute top-0.5 -right-0.5 w-4 h-4 bg-gold-500 text-forest-950 font-bold text-[10px] rounded-full flex items-center justify-center ring-2 ring-forest-900">0</span>
+      </button>
+    </div>
+  </header>
+  <!-- END: MainHeader -->
 
-    <!-- Main Content Area -->
-    <main class="app-content">
+  <!-- Main Atelier Screen Content -->
+  <main class="max-w-md mx-auto px-4 pt-4 space-y-6">
 
-      <!-- Live Gift Preview Hero -->
-      <section class="preview-hero">
-        <div class="preview-stage" id="previewStage">
-          <div class="preview-header-row">
-            <span class="preview-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Live Gift Preview</span>
-            <span class="preview-total-badge" id="previewPriceBadge">₹349</span>
+    <!-- BEGIN: LivePreviewSection -->
+    <section aria-label="Bespoke Gift Live Preview" class="relative">
+      <div class="relative bg-gradient-to-b from-white via-cream-50 to-cream-200/50 rounded-2xl border border-gold-400/40 p-4 shadow-luxury overflow-hidden">
+        <!-- Subtle gold corner ornamental motifs -->
+        <div class="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-gold-400/50 rounded-tl-sm pointer-events-none"></div>
+        <div class="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-gold-400/50 rounded-tr-sm pointer-events-none"></div>
+        
+        <!-- Live Preview Header with Total Price -->
+        <div class="flex items-center justify-between pb-3 border-b border-cream-300/80">
+          <div class="flex items-center gap-2">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-forest-900 text-gold-400 text-[10px] font-semibold tracking-wider uppercase shadow-xs">
+              <span class="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse"></span>
+              Live Bespoke Preview
+            </span>
           </div>
-
-          <div class="preview-visual-box">
-            <!-- Selected Packaging Box (Real photo) -->
-            <img src="designs/design3_window_box.png" alt="Selected Box Design" id="previewBoxImg" class="preview-box-main-img">
-
-            <!-- Selected Plant Overlay Badge -->
-            <div class="plant-combo-badge" id="previewPlantBadge">
-              <img src="plants/rose.jpg" alt="Plant thumbnail" id="previewPlantThumb" class="combo-thumb">
-              <span id="previewPlantName">Red Rose Plant</span>
-            </div>
-
-            <!-- Big Label Overlay (Printed on Gift) -->
-            <div class="custom-gift-tag" id="previewTagOverlay">
-              <div class="tag-body">
-                <i class="fa-solid fa-tag"></i>
-                <span class="tag-text" id="previewTagText">Happy New Year 2027</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Personal Message Preview Box -->
-          <div class="preview-message-card" id="previewMessageCard">
-            <i class="fa-solid fa-envelope-open-text msg-icon"></i>
-            <span class="msg-quote" id="previewMsgText">"Wishing you happiness, good health and prosperity!"</span>
-          </div>
-
-          <div class="preview-summary-bar">
-            <div class="summary-details">
-              <strong id="previewSummaryTitle">White Window Box + Red Rose Plant</strong>
-              <span id="previewSummaryTag">Big Label: "Happy New Year 2027"</span>
-            </div>
+          <!-- Live Calculated Price Badge -->
+          <div class="text-right">
+            <span class="text-[10px] uppercase tracking-wider text-charcoal-500 font-medium block">Gift Set Price</span>
+            <span id="previewPriceBadge" class="font-serif text-xl font-bold text-forest-900 tracking-tight">₹349</span>
           </div>
         </div>
-      </section>
 
-      <!-- Step 1: Choose Packaging Style (from Reference PDF Step 1) -->
-      <section class="selection-section">
-        <div class="section-title-row">
-          <span class="step-bubble">1</span>
+        <!-- Visual Atelier Showcase Box -->
+        <div class="my-4 relative bg-gradient-to-b from-cream-100/70 to-cream-200/80 rounded-xl p-3 border border-cream-300/70 flex flex-col items-center">
+          <!-- Selected Mini Plant Pill Float -->
+          <div class="self-start inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm border border-gold-400/30 px-2.5 py-1 rounded-full shadow-xs mb-2">
+            <img id="previewPlantThumb" alt="Selected Plant Miniature" class="w-4 h-4 rounded-full object-cover" src="plants/rose.jpg">
+            <span id="previewPlantTitle" class="text-[11px] font-medium text-forest-900">Red Rose Fragrant Plant</span>
+          </div>
+
+          <!-- Product Composite Presentation (Packaging + Plant + Ribbon) -->
+          <div class="relative w-48 h-56 flex items-center justify-center my-1">
+            <!-- Gift Box Image with cutout window & botanical interior -->
+            <img id="previewBoxImg" alt="Gift Box Presentation" class="w-full h-full object-contain filter drop-shadow-md rounded-lg" src="designs/design3_window_box.png">
+            <!-- Floating Embossed Gold Ribbon / Tag Badge -->
+            <div class="absolute -bottom-2 right-1 bg-gradient-to-r from-gold-500 via-amber-400 to-gold-600 text-forest-950 font-serif font-semibold text-xs tracking-wide px-3 py-1.5 rounded shadow-md border border-amber-200 flex items-center gap-1.5 transform rotate-[-2deg]">
+              <i class="ph ph-tag text-forest-950 text-xs"></i>
+              <span id="preview-label-tag">Happy New Year 2027</span>
+            </div>
+          </div>
+
+          <!-- Handwritten Quote Banner -->
+          <div class="w-full mt-3 pt-2.5 border-t border-dashed border-gold-500/40 text-center">
+            <div class="inline-flex items-center gap-1 text-[11px] text-gold-600 font-semibold uppercase tracking-wider mb-0.5">
+              <i class="ph ph-envelope-open text-xs"></i> Wax-Sealed Message Card
+            </div>
+            <p class="font-serif italic text-xs text-charcoal-700 leading-snug px-2" id="preview-message-text">
+              "Wishing you happiness, good health and prosperity!"
+            </p>
+          </div>
+        </div>
+
+        <!-- Configuration Summary Line -->
+        <div class="bg-forest-900/5 rounded-lg px-3 py-2 flex items-center justify-between text-xs">
           <div>
-            <h2>Choose Packaging Style</h2>
-            <p>Signature handcrafted boxes & pots (photographs below)</p>
+            <span id="summaryBoxName" class="font-semibold text-forest-900">White Window Box</span>
+            <span class="text-charcoal-500 mx-1">+</span>
+            <span id="summaryPlantName" class="font-semibold text-forest-900">Red Rose Plant</span>
           </div>
+          <span class="text-[11px] text-gold-700 font-medium bg-gold-400/20 px-2 py-0.5 rounded border border-gold-400/30">Big Tag Attached</span>
         </div>
-
-        <div class="cards-grid" id="bucketsGrid">
-          <!-- 1. White Window Box -->
-          <div class="option-card selected" data-type="box" data-id="window-box" data-name="White Window Box" data-price="150" data-img="designs/design3_window_box.png">
-            <div class="card-radio"><i class="fa-solid fa-circle-check"></i></div>
-            <div class="img-wrapper box-img-wrap">
-              <img src="designs/design3_window_box.png" alt="White Window Gift Box">
-            </div>
-            <div class="card-info">
-              <h3>White Window Box</h3>
-              <span class="card-sub">Die-Cut Window & Satin Bow</span>
-              <span class="card-price">₹150</span>
-            </div>
-          </div>
-
-          <!-- 2. Kalpavriksha Blue Box -->
-          <div class="option-card" data-type="box" data-id="kalpavriksha" data-name="Kalpavriksha Box" data-price="160" data-img="designs/design1_kalpavriksha.png">
-            <div class="card-radio"><i class="fa-regular fa-circle"></i></div>
-            <div class="img-wrapper box-img-wrap">
-              <img src="designs/design1_kalpavriksha.png" alt="Kalpavriksha Blue Box">
-            </div>
-            <div class="card-info">
-              <h3>Kalpavriksha Box</h3>
-              <span class="card-sub">Festive Konaseema Art</span>
-              <span class="card-price">₹160</span>
-            </div>
-          </div>
-
-          <!-- 3. Kraft Paper Ribbon Pot -->
-          <div class="option-card" data-type="box" data-id="kraft-pot" data-name="Kraft Paper Pot" data-price="100" data-img="designs/design2_kraft_pot.png">
-            <div class="card-radio"><i class="fa-regular fa-circle"></i></div>
-            <div class="img-wrapper box-img-wrap">
-              <img src="designs/design2_kraft_pot.png" alt="Kraft Paper Ribbon Pot">
-            </div>
-            <div class="card-info">
-              <h3>Kraft Paper Pot</h3>
-              <span class="card-sub">Organic Wrap + Red Bow</span>
-              <span class="card-price">₹100</span>
-            </div>
-          </div>
-
-          <!-- 4. Temple Diya Motif Box -->
-          <div class="option-card" data-type="box" data-id="temple-box" data-name="Temple Diya Box" data-price="160" data-img="designs/design4_temple_box.png">
-            <div class="card-radio"><i class="fa-regular fa-circle"></i></div>
-            <div class="img-wrapper box-img-wrap">
-              <img src="designs/design4_temple_box.png" alt="Temple Diya Motif Box">
-            </div>
-            <div class="card-info">
-              <h3>Temple Diya Box</h3>
-              <span class="card-sub">Pooja & Housewarming</span>
-              <span class="card-price">₹160</span>
-            </div>
-          </div>
-
-          <!-- 5. Botanical Celebration Pouch -->
-          <div class="option-card" data-type="box" data-id="celebration-pouch" data-name="Celebration Pouch" data-price="130" data-img="designs/design5_celebration_pouch.png">
-            <div class="card-radio"><i class="fa-regular fa-circle"></i></div>
-            <div class="img-wrapper box-img-wrap">
-              <img src="designs/design5_celebration_pouch.png" alt="Botanical Celebration Pouch">
-            </div>
-            <div class="card-info">
-              <h3>Celebration Pouch</h3>
-              <span class="card-sub">Heart Tag Return Gift</span>
-              <span class="card-price">₹130</span>
-            </div>
-          </div>
-
-          <!-- 6. Handle Carrier Caddy -->
-          <div class="option-card" data-type="box" data-id="carrier-box" data-name="Handle Caddy Box" data-price="140" data-img="designs/design6_carrier_box.png">
-            <div class="card-radio"><i class="fa-regular fa-circle"></i></div>
-            <div class="img-wrapper box-img-wrap">
-              <img src="designs/design6_carrier_box.png" alt="Handle Carrier Box">
-            </div>
-            <div class="card-info">
-              <h3>Handle Caddy Box</h3>
-              <span class="card-sub">Modern Open Carrier</span>
-              <span class="card-price">₹140</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Step 2: Choose Plant Variety (from Reference PDF Step 2) -->
-      <section class="selection-section">
-        <div class="section-title-row">
-          <span class="step-bubble">2</span>
-          <div>
-            <h2>Choose Plant Variety</h2>
-            <p>Popular flowering & healthy green plants</p>
-          </div>
-        </div>
-
-        <div class="cards-grid" id="plantsGrid">
-          <!-- 1. Red Rose -->
-          <div class="option-card selected" data-type="plant" data-id="rose" data-name="Red Rose Plant" data-price="199" data-img="plants/rose.jpg">
-            <div class="card-radio"><i class="fa-solid fa-circle-check"></i></div>
-            <div class="img-wrapper">
-              <img src="plants/rose.jpg" alt="Red Rose Plant">
-            </div>
-            <div class="card-info">
-              <h3>Red Rose Plant</h3>
-              <span class="card-sub">Classic Fragrant Rose</span>
-              <span class="card-price">₹199</span>
-            </div>
-          </div>
-
-          <!-- 2. Jasmine / Mogra -->
-          <div class="option-card" data-type="plant" data-id="jasmine" data-name="Jasmine / Mogra" data-price="179" data-img="plants/jasmine.jpg">
-            <div class="card-radio"><i class="fa-regular fa-circle"></i></div>
-            <div class="img-wrapper">
-              <img src="plants/jasmine.jpg" alt="Jasmine Mogra Plant">
-            </div>
-            <div class="card-info">
-              <h3>Jasmine (Mogra)</h3>
-              <span class="card-sub">Sweet Fragrance Malle</span>
-              <span class="card-price">₹179</span>
-            </div>
-          </div>
-
-          <!-- 3. Hibiscus -->
-          <div class="option-card" data-type="plant" data-id="hibiscus" data-name="Red Hibiscus" data-price="189" data-img="plants/hibiscus.jpg">
-            <div class="card-radio"><i class="fa-regular fa-circle"></i></div>
-            <div class="img-wrapper">
-              <img src="plants/hibiscus.jpg" alt="Hibiscus Plant">
-            </div>
-            <div class="card-info">
-              <h3>Red Hibiscus</h3>
-              <span class="card-sub">Mandaram Blooms</span>
-              <span class="card-price">₹189</span>
-            </div>
-          </div>
-
-          <!-- 4. Tulasi -->
-          <div class="option-card" data-type="plant" data-id="tulasi" data-name="Sacred Tulasi" data-price="149" data-img="plants/tulasi.jpg">
-            <div class="card-radio"><i class="fa-regular fa-circle"></i></div>
-            <div class="img-wrapper">
-              <img src="plants/tulasi.jpg" alt="Tulasi Plant">
-            </div>
-            <div class="card-info">
-              <h3>Sacred Tulasi</h3>
-              <span class="card-sub">Holy Basil & Positivity</span>
-              <span class="card-price">₹149</span>
-            </div>
-          </div>
-
-          <!-- 5. Money Plant -->
-          <div class="option-card" data-type="plant" data-id="money-plant" data-name="Money Plant" data-price="169" data-img="plants/money_plant.jpg">
-            <div class="card-radio"><i class="fa-regular fa-circle"></i></div>
-            <div class="img-wrapper">
-              <img src="plants/money_plant.jpg" alt="Money Plant">
-            </div>
-            <div class="card-info">
-              <h3>Money Plant</h3>
-              <span class="card-sub">Fortune Golden Pothos</span>
-              <span class="card-price">₹169</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Step 3: Add Big Label & Personal Message (from Reference PDF Step 3) -->
-      <section class="selection-section">
-        <div class="section-title-row">
-          <span class="step-bubble">3</span>
-          <div>
-            <h2>Add Big Label & Personal Message</h2>
-            <p>Printed on the gift box tag and custom message card</p>
-          </div>
-        </div>
-
-        <div class="label-message-inputs">
-          <!-- 3A. Big Label Input -->
-          <div class="input-block">
-            <label for="bigLabelInput" class="input-label-row">
-              <span><i class="fa-solid fa-tag"></i> <strong>Big Label</strong> (Printed on gift box)</span>
-            </label>
-            <div class="input-with-icon">
-              <i class="fa-solid fa-pen"></i>
-              <input 
-                type="text" 
-                id="bigLabelInput" 
-                placeholder="e.g. Happy New Year 2027, Happy Birthday..." 
-                value="Happy New Year 2027"
-                maxlength="30"
-                autocomplete="off"
-              >
-            </div>
-            <div class="tag-chips">
-              <span class="chip active" data-text="Happy New Year 2027">New Year 2027</span>
-              <span class="chip" data-text="Happy Birthday 🎂">Happy Birthday</span>
-              <span class="chip" data-text="Congratulations ✨">Congratulations</span>
-              <span class="chip" data-text="Warm Welcome 🏡">Warm Welcome</span>
-              <span class="chip" data-text="Best Wishes 🌸">Best Wishes</span>
-            </div>
-          </div>
-
-          <!-- 3B. Personal Message Input -->
-          <div class="input-block" style="margin-top: 14px;">
-            <label for="personalMessageInput" class="input-label-row">
-              <span><i class="fa-solid fa-envelope"></i> <strong>Personal Message</strong> (Gift note card)</span>
-            </label>
-            <div class="input-with-icon">
-              <textarea 
-                id="personalMessageInput" 
-                rows="2" 
-                placeholder="Write a warm custom message to accompany the plant gift..."
-              >Wishing you happiness, good health and prosperity!</textarea>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Step 4: Select Quantity & Add Orders -->
-      <section class="selection-section quantity-section">
-        <div class="section-title-row">
-          <span class="step-bubble">4</span>
-          <div>
-            <h2>Select Quantity & Add Orders</h2>
-            <p>Single gift or bulk quantities for functions</p>
-          </div>
-        </div>
-
-        <!-- Quantity Stepper -->
-        <div class="order-quantity-row">
-          <div class="stepper-box">
-            <button class="step-btn" id="qtyMinusBtn" aria-label="Decrease quantity">
-              <i class="fa-solid fa-minus"></i>
-            </button>
-            <input type="number" id="orderQtyInput" class="step-input" value="1" min="1" max="500">
-            <button class="step-btn" id="qtyPlusBtn" aria-label="Increase quantity">
-              <i class="fa-solid fa-plus"></i>
-            </button>
-          </div>
-          <div class="bulk-subtotal-info">
-            <span class="subtotal-label">Subtotal for this item:</span>
-            <strong class="subtotal-amt" id="itemSubtotalAmt">₹349</strong>
-          </div>
-        </div>
-
-        <!-- Quick Quantity Presets -->
-        <div class="quick-qty-chips">
-          <span class="qty-preset active" data-qty="1">1 pc</span>
-          <span class="qty-preset" data-qty="5">5 pcs</span>
-          <span class="qty-preset" data-qty="10">10 pcs</span>
-          <span class="qty-preset" data-qty="25">25 pcs</span>
-          <span class="qty-preset" data-qty="50">50 pcs</span>
-          <span class="qty-preset" data-qty="100">100+ Bulk</span>
-        </div>
-
-        <!-- Multi-Order Actions -->
-        <div class="multi-order-actions">
-          <button class="add-order-cart-btn" id="addCurrentOrderBtn">
-            <i class="fa-solid fa-cart-plus"></i>
-            <span>Add to Cart</span>
-          </button>
-          <button class="add-more-orders-btn" id="addMoreOrdersBtn">
-            <i class="fa-solid fa-plus-circle"></i>
-            <span>+ Add Another Plant</span>
-          </button>
-        </div>
-      </section>
-
-      <div class="bottom-spacer"></div>
-    </main>
-
-    <!-- Bottom Sticky Action Bar -->
-    <div class="sticky-bottom-bar">
-      <div class="price-block">
-        <span class="total-label">Total for <span id="barQtyCount">1</span> item:</span>
-        <span class="total-amount" id="barTotalPrice">₹349</span>
       </div>
-      <div class="bottom-bar-actions">
-        <button class="add-to-cart-btn" id="stickyAddToCartBtn">
-          <i class="fa-solid fa-cart-plus"></i>
+    </section>
+    <!-- END: LivePreviewSection -->
+
+    <!-- BEGIN: Step1PackagingSection -->
+    <section aria-labelledby="step-1-title" class="bg-white rounded-2xl border border-cream-300/80 p-4 shadow-sm">
+      <!-- Step 1 Header -->
+      <div class="flex items-center gap-3 mb-4">
+        <span class="w-7 h-7 rounded-full bg-forest-900 text-gold-400 font-serif font-bold text-sm flex items-center justify-center shadow-xs">1</span>
+        <div>
+          <h2 class="font-serif text-base font-bold text-forest-900" id="step-1-title">Choose Packaging Style</h2>
+          <p class="text-xs text-charcoal-500">Artisan handcrafted presentation boxes & organic wraps</p>
+        </div>
+      </div>
+
+      <!-- Packaging 2-Column Grid -->
+      <div id="packagingGrid" aria-label="Select Gift Packaging Style" class="grid grid-cols-2 gap-3" role="radiogroup">
+        <!-- Option 1 (Selected) -->
+        <article class="packaging-card relative group cursor-pointer border-2 border-forest-900 bg-cream-50/70 rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
+          data-id="window-box" data-name="White Window Box" data-price="150" data-img="designs/design3_window_box.png">
+          <div class="relative w-full aspect-square rounded-lg overflow-hidden bg-cream-200 mb-2 p-1 flex items-center justify-center">
+            <img alt="White Window Box" class="w-full h-full object-contain" src="designs/design3_window_box.png">
+            <span class="radio-indicator absolute top-2 right-2 w-5 h-5 bg-forest-900 text-gold-400 rounded-full flex items-center justify-center shadow">
+              <i class="ph ph-check text-xs font-bold"></i>
+            </span>
+          </div>
+          <div>
+            <h3 class="font-serif text-xs font-bold text-forest-900 leading-tight">White Window Box</h3>
+            <p class="text-[10px] text-charcoal-500 mt-0.5">Die-Cut Window & Satin Bow</p>
+          </div>
+          <div class="mt-2 pt-1 border-t border-cream-300 flex items-center justify-between">
+            <span class="text-xs font-bold text-forest-900">₹150</span>
+            <span class="status-label text-[10px] text-gold-700 font-semibold uppercase tracking-wider">Selected</span>
+          </div>
+        </article>
+
+        <!-- Option 2 -->
+        <article class="packaging-card relative group cursor-pointer border border-cream-300 hover:border-gold-500/60 bg-white rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
+          data-id="kalpavriksha" data-name="Kalpavriksha Box" data-price="160" data-img="designs/design1_kalpavriksha.png">
+          <div class="relative w-full aspect-square rounded-lg overflow-hidden bg-cream-200 mb-2 p-1 flex items-center justify-center">
+            <img alt="Kalpavriksha Royal Box" class="w-full h-full object-contain" src="designs/design1_kalpavriksha.png">
+            <span class="radio-indicator absolute top-2 right-2 w-5 h-5 border border-charcoal-400 bg-white/90 rounded-full flex items-center justify-center"></span>
+          </div>
+          <div>
+            <h3 class="font-serif text-xs font-bold text-forest-900 leading-tight">Kalpavriksha Box</h3>
+            <p class="text-[10px] text-charcoal-500 mt-0.5">Festive Konaseema Art</p>
+          </div>
+          <div class="mt-2 pt-1 border-t border-cream-200 flex items-center justify-between">
+            <span class="text-xs font-bold text-forest-900">₹160</span>
+            <span class="status-label text-[10px] text-charcoal-400">Select</span>
+          </div>
+        </article>
+
+        <!-- Option 3 -->
+        <article class="packaging-card relative group cursor-pointer border border-cream-300 hover:border-gold-500/60 bg-white rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
+          data-id="kraft-pot" data-name="Kraft Paper Pot" data-price="100" data-img="designs/design2_kraft_pot.png">
+          <div class="relative w-full aspect-square rounded-lg overflow-hidden bg-cream-200 mb-2 p-1 flex items-center justify-center">
+            <img alt="Kraft Paper Artisan Pot" class="w-full h-full object-contain" src="designs/design2_kraft_pot.png">
+            <span class="radio-indicator absolute top-2 right-2 w-5 h-5 border border-charcoal-400 bg-white/90 rounded-full flex items-center justify-center"></span>
+          </div>
+          <div>
+            <h3 class="font-serif text-xs font-bold text-forest-900 leading-tight">Kraft Paper Pot</h3>
+            <p class="text-[10px] text-charcoal-500 mt-0.5">Organic Wrap + Red Bow</p>
+          </div>
+          <div class="mt-2 pt-1 border-t border-cream-200 flex items-center justify-between">
+            <span class="text-xs font-bold text-forest-900">₹100</span>
+            <span class="status-label text-[10px] text-charcoal-400">Select</span>
+          </div>
+        </article>
+
+        <!-- Option 4 -->
+        <article class="packaging-card relative group cursor-pointer border border-cream-300 hover:border-gold-500/60 bg-white rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
+          data-id="temple-box" data-name="Temple Diya Box" data-price="160" data-img="designs/design4_temple_box.png">
+          <div class="relative w-full aspect-square rounded-lg overflow-hidden bg-cream-200 mb-2 p-1 flex items-center justify-center">
+            <img alt="Temple Diya Box" class="w-full h-full object-contain" src="designs/design4_temple_box.png">
+            <span class="radio-indicator absolute top-2 right-2 w-5 h-5 border border-charcoal-400 bg-white/90 rounded-full flex items-center justify-center"></span>
+          </div>
+          <div>
+            <h3 class="font-serif text-xs font-bold text-forest-900 leading-tight">Temple Diya Box</h3>
+            <p class="text-[10px] text-charcoal-500 mt-0.5">Pooja & Housewarming</p>
+          </div>
+          <div class="mt-2 pt-1 border-t border-cream-200 flex items-center justify-between">
+            <span class="text-xs font-bold text-forest-900">₹160</span>
+            <span class="status-label text-[10px] text-charcoal-400">Select</span>
+          </div>
+        </article>
+
+        <!-- Option 5 -->
+        <article class="packaging-card relative group cursor-pointer border border-cream-300 hover:border-gold-500/60 bg-white rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
+          data-id="celebration-pouch" data-name="Celebration Pouch" data-price="130" data-img="designs/design5_celebration_pouch.png">
+          <div class="relative w-full aspect-square rounded-lg overflow-hidden bg-cream-200 mb-2 p-1 flex items-center justify-center">
+            <img alt="Celebration Silk Pouch" class="w-full h-full object-contain" src="designs/design5_celebration_pouch.png">
+            <span class="radio-indicator absolute top-2 right-2 w-5 h-5 border border-charcoal-400 bg-white/90 rounded-full flex items-center justify-center"></span>
+          </div>
+          <div>
+            <h3 class="font-serif text-xs font-bold text-forest-900 leading-tight">Celebration Pouch</h3>
+            <p class="text-[10px] text-charcoal-500 mt-0.5">Heart Tag Keepsake Pack</p>
+          </div>
+          <div class="mt-2 pt-1 border-t border-cream-200 flex items-center justify-between">
+            <span class="text-xs font-bold text-forest-900">₹130</span>
+            <span class="status-label text-[10px] text-charcoal-400">Select</span>
+          </div>
+        </article>
+
+        <!-- Option 6 -->
+        <article class="packaging-card relative group cursor-pointer border border-cream-300 hover:border-gold-500/60 bg-white rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
+          data-id="carrier-box" data-name="Handle Caddy Box" data-price="140" data-img="designs/design6_carrier_box.png">
+          <div class="relative w-full aspect-square rounded-lg overflow-hidden bg-cream-200 mb-2 p-1 flex items-center justify-center">
+            <img alt="Handle Caddy Box" class="w-full h-full object-contain" src="designs/design6_carrier_box.png">
+            <span class="radio-indicator absolute top-2 right-2 w-5 h-5 border border-charcoal-400 bg-white/90 rounded-full flex items-center justify-center"></span>
+          </div>
+          <div>
+            <h3 class="font-serif text-xs font-bold text-forest-900 leading-tight">Handle Caddy Box</h3>
+            <p class="text-[10px] text-charcoal-500 mt-0.5">Modern Open Carrier</p>
+          </div>
+          <div class="mt-2 pt-1 border-t border-cream-200 flex items-center justify-between">
+            <span class="text-xs font-bold text-forest-900">₹140</span>
+            <span class="status-label text-[10px] text-charcoal-400">Select</span>
+          </div>
+        </article>
+      </div>
+    </section>
+    <!-- END: Step1PackagingSection -->
+
+    <!-- BEGIN: Step2PlantVarietySection (from PDF Step 2) -->
+    <section aria-labelledby="step-2-title" class="bg-white rounded-2xl border border-cream-300/80 p-4 shadow-sm">
+      <!-- Step 2 Header -->
+      <div class="flex items-center gap-3 mb-4">
+        <span class="w-7 h-7 rounded-full bg-forest-900 text-gold-400 font-serif font-bold text-sm flex items-center justify-center shadow-xs">2</span>
+        <div>
+          <h2 class="font-serif text-base font-bold text-forest-900" id="step-2-title">Choose Plant Variety</h2>
+          <p class="text-xs text-charcoal-500">Popular flowering & healthy purifying green plants</p>
+        </div>
+      </div>
+
+      <!-- Plant Variety 2-Column Grid -->
+      <div id="plantsGrid" aria-label="Select Plant Variety" class="grid grid-cols-2 gap-3" role="radiogroup">
+        <!-- Plant 1 (Selected) -->
+        <article class="plant-card relative group cursor-pointer border-2 border-forest-900 bg-cream-50/70 rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
+          data-id="rose" data-name="Red Rose Plant" data-price="199" data-img="plants/rose.jpg">
+          <div class="relative w-full aspect-square rounded-lg overflow-hidden bg-cream-200 mb-2">
+            <img alt="Classic Fragrant Red Rose" class="w-full h-full object-cover" src="plants/rose.jpg">
+            <span class="radio-indicator absolute top-2 right-2 w-5 h-5 bg-forest-900 text-gold-400 rounded-full flex items-center justify-center shadow">
+              <i class="ph ph-check text-xs font-bold"></i>
+            </span>
+          </div>
+          <div>
+            <h3 class="font-serif text-xs font-bold text-forest-900 leading-tight">Red Rose Plant</h3>
+            <p class="text-[10px] text-charcoal-500 mt-0.5">Classic Fragrant Blooms</p>
+          </div>
+          <div class="mt-2 pt-1 border-t border-cream-300 flex items-center justify-between">
+            <span class="text-xs font-bold text-forest-900">₹199</span>
+            <span class="status-label text-[10px] text-gold-700 font-semibold uppercase tracking-wider">Selected</span>
+          </div>
+        </article>
+
+        <!-- Plant 2 -->
+        <article class="plant-card relative group cursor-pointer border border-cream-300 hover:border-gold-500/60 bg-white rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
+          data-id="jasmine" data-name="Jasmine (Mogra)" data-price="179" data-img="plants/jasmine.jpg">
+          <div class="relative w-full aspect-square rounded-lg overflow-hidden bg-cream-200 mb-2">
+            <img alt="Jasmine Mogra Flower" class="w-full h-full object-cover" src="plants/jasmine.jpg">
+            <span class="radio-indicator absolute top-2 right-2 w-5 h-5 border border-charcoal-400 bg-white/90 rounded-full flex items-center justify-center"></span>
+          </div>
+          <div>
+            <h3 class="font-serif text-xs font-bold text-forest-900 leading-tight">Jasmine (Mogra)</h3>
+            <p class="text-[10px] text-charcoal-500 mt-0.5">Sweet Fragrance Malle</p>
+          </div>
+          <div class="mt-2 pt-1 border-t border-cream-200 flex items-center justify-between">
+            <span class="text-xs font-bold text-forest-900">₹179</span>
+            <span class="status-label text-[10px] text-charcoal-400">Select</span>
+          </div>
+        </article>
+
+        <!-- Plant 3 -->
+        <article class="plant-card relative group cursor-pointer border border-cream-300 hover:border-gold-500/60 bg-white rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
+          data-id="hibiscus" data-name="Red Hibiscus" data-price="189" data-img="plants/hibiscus.jpg">
+          <div class="relative w-full aspect-square rounded-lg overflow-hidden bg-cream-200 mb-2">
+            <img alt="Red Hibiscus Bloom" class="w-full h-full object-cover" src="plants/hibiscus.jpg">
+            <span class="radio-indicator absolute top-2 right-2 w-5 h-5 border border-charcoal-400 bg-white/90 rounded-full flex items-center justify-center"></span>
+          </div>
+          <div>
+            <h3 class="font-serif text-xs font-bold text-forest-900 leading-tight">Red Hibiscus</h3>
+            <p class="text-[10px] text-charcoal-500 mt-0.5">Mandaram Auspicious</p>
+          </div>
+          <div class="mt-2 pt-1 border-t border-cream-200 flex items-center justify-between">
+            <span class="text-xs font-bold text-forest-900">₹189</span>
+            <span class="status-label text-[10px] text-charcoal-400">Select</span>
+          </div>
+        </article>
+
+        <!-- Plant 4 -->
+        <article class="plant-card relative group cursor-pointer border border-cream-300 hover:border-gold-500/60 bg-white rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
+          data-id="tulasi" data-name="Sacred Tulasi" data-price="149" data-img="plants/tulasi.jpg">
+          <div class="relative w-full aspect-square rounded-lg overflow-hidden bg-cream-200 mb-2">
+            <img alt="Sacred Tulsi Holy Basil" class="w-full h-full object-cover" src="plants/tulasi.jpg">
+            <span class="radio-indicator absolute top-2 right-2 w-5 h-5 border border-charcoal-400 bg-white/90 rounded-full flex items-center justify-center"></span>
+          </div>
+          <div>
+            <h3 class="font-serif text-xs font-bold text-forest-900 leading-tight">Sacred Tulasi</h3>
+            <p class="text-[10px] text-charcoal-500 mt-0.5">Holy Basil & Positive Aura</p>
+          </div>
+          <div class="mt-2 pt-1 border-t border-cream-200 flex items-center justify-between">
+            <span class="text-xs font-bold text-forest-900">₹149</span>
+            <span class="status-label text-[10px] text-charcoal-400">Select</span>
+          </div>
+        </article>
+
+        <!-- Plant 5 -->
+        <article class="plant-card relative group cursor-pointer border border-cream-300 hover:border-gold-500/60 bg-white rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
+          data-id="money-plant" data-name="Golden Money Plant" data-price="169" data-img="plants/money_plant.jpg">
+          <div class="relative w-full aspect-square rounded-lg overflow-hidden bg-cream-200 mb-2">
+            <img alt="Money Plant Golden Pothos" class="w-full h-full object-cover" src="plants/money_plant.jpg">
+            <span class="radio-indicator absolute top-2 right-2 w-5 h-5 border border-charcoal-400 bg-white/90 rounded-full flex items-center justify-center"></span>
+          </div>
+          <div>
+            <h3 class="font-serif text-xs font-bold text-forest-900 leading-tight">Golden Money Plant</h3>
+            <p class="text-[10px] text-charcoal-500 mt-0.5">Fortune Air-Purifier</p>
+          </div>
+          <div class="mt-2 pt-1 border-t border-cream-200 flex items-center justify-between">
+            <span class="text-xs font-bold text-forest-900">₹169</span>
+            <span class="status-label text-[10px] text-charcoal-400">Select</span>
+          </div>
+        </article>
+      </div>
+    </section>
+    <!-- END: Step2PlantVarietySection -->
+
+    <!-- BEGIN: Step3PersonalizationSection (from PDF Step 3) -->
+    <section aria-labelledby="step-3-title" class="bg-white rounded-2xl border border-cream-300/80 p-4 shadow-sm space-y-4">
+      <!-- Step 3 Header -->
+      <div class="flex items-center gap-3">
+        <span class="w-7 h-7 rounded-full bg-forest-900 text-gold-400 font-serif font-bold text-sm flex items-center justify-center shadow-xs">3</span>
+        <div>
+          <h2 class="font-serif text-base font-bold text-forest-900" id="step-3-title">Personalize Big Label & Note</h2>
+          <p class="text-xs text-charcoal-500">Foil-stamped gift tag & wax-sealed message card</p>
+        </div>
+      </div>
+
+      <!-- Part A: Big Box Label -->
+      <div class="space-y-2">
+        <label class="flex items-center gap-1.5 text-xs font-bold text-forest-900" for="big-label-input">
+          <i class="ph ph-tag text-gold-600 text-sm"></i>
+          <span>Big Label Tag</span>
+          <span class="text-[10px] font-normal text-charcoal-500">(Printed on the outer box tag)</span>
+        </label>
+        
+        <!-- Editable Label Input Field with Pen Icon -->
+        <div class="relative">
+          <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-charcoal-500">
+            <i class="ph ph-pencil-simple-line text-base text-gold-600"></i>
+          </span>
+          <input class="block w-full pl-9 pr-3 py-2 bg-cream-50/70 border border-cream-300 rounded-xl text-xs font-serif font-semibold text-forest-900 placeholder-charcoal-400 focus:bg-white focus:outline-none focus:ring-1 focus:ring-gold-500 focus:border-gold-500 transition-colors" 
+            id="big-label-input" placeholder="e.g. Happy New Year 2027" type="text" value="Happy New Year 2027">
+        </div>
+
+        <!-- Quick Select Occasion Pills -->
+        <div class="pt-1">
+          <span class="text-[10px] text-charcoal-500 uppercase font-semibold tracking-wider block mb-1.5">Quick Select Occasions</span>
+          <div class="flex items-center gap-1.5 flex-wrap" id="occasionPills">
+            <button class="occasion-pill px-2.5 py-1 rounded-full text-xs font-medium bg-forest-900 text-gold-400 shadow-xs ring-1 ring-forest-900" type="button" data-text="Happy New Year 2027">New Year 2027</button>
+            <button class="occasion-pill px-2.5 py-1 rounded-full text-xs font-medium bg-cream-100 text-charcoal-700 hover:bg-cream-200 border border-cream-300 transition-colors" type="button" data-text="Happy Birthday 🎂">Happy Birthday</button>
+            <button class="occasion-pill px-2.5 py-1 rounded-full text-xs font-medium bg-cream-100 text-charcoal-700 hover:bg-cream-200 border border-cream-300 transition-colors" type="button" data-text="Congratulations ✨">Congratulations</button>
+            <button class="occasion-pill px-2.5 py-1 rounded-full text-xs font-medium bg-cream-100 text-charcoal-700 hover:bg-cream-200 border border-cream-300 transition-colors" type="button" data-text="Warm Welcome 🏡">Warm Welcome</button>
+            <button class="occasion-pill px-2.5 py-1 rounded-full text-xs font-medium bg-cream-100 text-charcoal-700 hover:bg-cream-200 border border-cream-300 transition-colors" type="button" data-text="Best Wishes 🌸">Best Wishes</button>
+            <button class="occasion-pill px-2.5 py-1 rounded-full text-xs font-medium bg-cream-100 text-charcoal-700 hover:bg-cream-200 border border-cream-300 transition-colors" type="button" data-text="With Love 💚">With Love</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part B: Handwritten Personal Message -->
+      <div class="space-y-2 pt-2 border-t border-cream-200">
+        <div class="flex items-center justify-between">
+          <label class="flex items-center gap-1.5 text-xs font-bold text-forest-900" for="personal-message">
+            <i class="ph ph-envelope-simple text-gold-600 text-sm"></i>
+            <span>Personal Handwritten Note</span>
+            <span class="text-[10px] font-normal text-charcoal-500">(Included inside)</span>
+          </label>
+        </div>
+        <div class="relative">
+          <textarea class="block w-full p-3 bg-cream-50/70 border border-cream-300 rounded-xl text-xs font-serif italic text-charcoal-900 placeholder-charcoal-400 focus:bg-white focus:outline-none focus:ring-1 focus:ring-gold-500 focus:border-gold-500 transition-colors leading-relaxed" 
+            id="personal-message" placeholder="Write your bespoke heartfelt greeting here..." rows="3">Wishing you happiness, good health and prosperity!</textarea>
+        </div>
+        <div class="pt-1 flex items-center justify-between text-[11px] text-charcoal-500">
+          <span class="flex items-center gap-1"><i class="ph ph-sparkle text-gold-600"></i> Free wax seal & textured card envelope</span>
+          <span class="text-gold-700 font-semibold">Included Free</span>
+        </div>
+      </div>
+    </section>
+    <!-- END: Step3PersonalizationSection -->
+
+    <!-- Botanical Atelier Assurance Badge -->
+    <div class="flex items-center justify-center gap-4 py-2 text-center text-charcoal-500 text-[11px]">
+      <span class="inline-flex items-center gap-1"><i class="ph ph-shield-check text-gold-600 text-sm"></i> 100% Live Transit Guarantee</span>
+      <span class="inline-flex items-center gap-1"><i class="ph ph-heart text-gold-600 text-sm"></i> Hand-Potted in Konaseema</span>
+    </div>
+
+  </main>
+
+  <!-- BEGIN: StickyBottomBar -->
+  <aside aria-label="Order Action Bar" class="fixed bottom-0 inset-x-0 z-50 bg-cream-50/95 backdrop-blur-md border-t border-cream-300 shadow-dock">
+    <div class="max-w-md mx-auto px-4 py-3 flex items-center justify-between gap-3">
+      <!-- Total Price Summary with Toggle -->
+      <div class="flex-1">
+        <span class="block text-[10px] font-medium tracking-wider text-charcoal-500 uppercase">Total for 1 Item</span>
+        <div class="flex items-baseline gap-1">
+          <span id="bottomTotalPrice" class="font-serif text-2xl font-bold text-forest-900 tracking-tight">₹349</span>
+          <span class="text-[10px] text-forest-700 font-semibold">(Taxes incl.)</span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-2">
+        <!-- Add to Cart CTA -->
+        <button id="addToCartBtn" class="bg-forest-900 hover:bg-forest-800 active:scale-95 text-gold-400 border border-gold-500/40 px-4 py-2.5 rounded-xl font-semibold text-xs tracking-wider uppercase flex items-center gap-1.5 shadow-md transition-all" type="button">
+          <i class="ph ph-shopping-cart-simple text-base text-gold-400"></i>
           <span>Add to Cart</span>
         </button>
-        <button class="sticky-view-cart-btn" id="stickyViewCartBtn">
-          <i class="fa-solid fa-bag-shopping"></i>
-          <span>View Cart</span>
-          <span class="bottom-cart-badge" id="bottomCartBadge">0</span>
+
+        <!-- View Cart Button -->
+        <button id="viewCartBtn" class="bg-white hover:bg-cream-100 active:scale-95 text-forest-900 border border-cream-400 px-3 py-2.5 rounded-xl font-medium text-xs flex items-center gap-1.5 shadow-xs transition-all" type="button">
+          <i class="ph ph-handbag text-sm"></i>
+          <span>Cart</span>
+          <span id="bottomCartCount" class="w-4 h-4 bg-forest-900 text-gold-400 text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
         </button>
       </div>
     </div>
+  </aside>
+  <!-- END: StickyBottomBar -->
 
-    <!-- Slide-Over Cart Drawer Modal (100% Scrollable & Full Visibility) -->
-    <div class="cart-drawer-backdrop" id="cartBackdrop"></div>
-    <div class="cart-drawer" id="cartDrawer">
-      <!-- Fixed Cart Header -->
-      <div class="cart-header">
-        <div class="cart-header-title">
-          <i class="fa-solid fa-bag-shopping"></i>
-          <h3>Your Plant Orders</h3>
-          <span class="cart-items-count-badge" id="cartHeaderBadge">0 pcs</span>
-        </div>
-        <button class="close-cart-btn" id="closeCartBtn" aria-label="Close Cart">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
+  <!-- Slide-Over Cart Drawer Modal -->
+  <div id="cartBackdrop" class="cart-drawer-backdrop fixed inset-0 bg-forest-950/70 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+  
+  <div id="cartDrawer" class="cart-drawer-panel fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md h-[88vh] max-h-[88vh] bg-white rounded-t-3xl z-50 shadow-2xl flex flex-col translate-y-full transition-transform duration-300 ease-out overflow-hidden">
+    
+    <!-- Cart Header -->
+    <div class="flex-shrink-0 px-5 py-4 border-b border-cream-300 flex items-center justify-between bg-white">
+      <div class="flex items-center gap-2">
+        <i class="ph ph-handbag text-xl text-forest-900"></i>
+        <h3 class="font-serif font-bold text-base text-forest-900">Your Plant Orders</h3>
+        <span id="cartHeaderQty" class="bg-forest-900/10 text-forest-900 text-[11px] font-bold px-2 py-0.5 rounded-full">0 pcs</span>
       </div>
-
-      <!-- Fully Scrollable Middle Body Container -->
-      <div class="cart-scrollable-body" id="cartScrollableBody">
-        <!-- Cart Items List -->
-        <div class="cart-items-container" id="cartItemsList">
-          <div class="empty-cart-state" id="emptyCartState">
-            <i class="fa-solid fa-seedling empty-icon"></i>
-            <p>Your cart is empty!</p>
-            <span>Pick your packaging & plant above, then tap "Add to Cart".</span>
-          </div>
-        </div>
-
-        <!-- Add Another Order Shortcut Button in Cart -->
-        <div class="cart-add-more-row" id="cartAddMoreRow" style="display: none;">
-          <button class="cart-add-more-btn" id="cartAddMoreBtn">
-            <i class="fa-solid fa-plus"></i> Add Another Plant Combo
-          </button>
-        </div>
-
-        <!-- Delivery Address Section inside Cart -->
-        <div class="cart-address-section" id="cartAddressSection" style="display: none;">
-          <div class="address-section-title">
-            <i class="fa-solid fa-location-dot"></i>
-            <h4>Delivery Address & Contact</h4>
-          </div>
-          <div class="cart-address-form">
-            <div class="address-field">
-              <label for="cartCustName"><i class="fa-solid fa-user"></i> Full Name *</label>
-              <input type="text" id="cartCustName" placeholder="Enter recipient or your name" autocomplete="name">
-            </div>
-            <div class="address-field">
-              <label for="cartCustPhone"><i class="fa-solid fa-phone"></i> WhatsApp Number *</label>
-              <input type="tel" id="cartCustPhone" placeholder="10-digit mobile number" maxlength="10" autocomplete="tel">
-            </div>
-            <div class="address-field">
-              <label for="cartCustAddress"><i class="fa-solid fa-house"></i> Full Delivery Address *</label>
-              <textarea id="cartCustAddress" rows="2" placeholder="House/Flat No., Street, Landmark"></textarea>
-            </div>
-            <div class="address-two-col">
-              <div class="address-field">
-                <label for="cartCustCity"><i class="fa-solid fa-city"></i> City / Town *</label>
-                <input type="text" id="cartCustCity" value="Amalapuram, Konaseema" placeholder="City or Town">
-              </div>
-              <div class="address-field">
-                <label for="cartCustPincode"><i class="fa-solid fa-map-pin"></i> Pincode *</label>
-                <input type="text" id="cartCustPincode" placeholder="6-digit PIN" maxlength="6">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Fixed Cart Footer (Always 100% visible, never cut off!) -->
-      <div class="cart-footer" id="cartFooter" style="display: none;">
-        <div class="cart-bill-row">
-          <span>Total Gifts:</span>
-          <strong id="cartTotalItemsCount">0 pcs</strong>
-        </div>
-        <div class="cart-bill-row">
-          <span>Grand Total:</span>
-          <strong class="grand-total-price" id="cartSubtotal">₹0</strong>
-        </div>
-        <div class="cart-bill-row delivery-note">
-          <span>Delivery across Konaseema:</span>
-          <span class="free-text">FREE</span>
-        </div>
-        <button class="whatsapp-checkout-btn" id="whatsappOrderBtn">
-          <i class="fa-brands fa-whatsapp"></i>
-          <span>Order via WhatsApp</span>
-        </button>
-      </div>
+      <button id="closeCartBtn" aria-label="Close Cart" class="w-8 h-8 rounded-full bg-cream-200 text-charcoal-700 flex items-center justify-center hover:bg-cream-300 transition-colors">
+        <i class="ph ph-x text-base"></i>
+      </button>
     </div>
 
-    <!-- Toast Notification -->
-    <div class="toast-notification" id="toastNotification">
-      <i class="fa-solid fa-circle-check"></i>
-      <span id="toastMsg">Added to Orders!</span>
+    <!-- Scrollable Body (Items + Add More + Address Form) -->
+    <div class="flex-1 overflow-y-auto smooth-scroll p-4 space-y-4">
+      
+      <!-- Cart Items List Container -->
+      <div id="cartItemsList" class="space-y-3">
+        <!-- Dynamic items or empty state -->
+        <div id="emptyCartState" class="py-12 text-center text-charcoal-500">
+          <i class="ph ph-plant text-4xl text-forest-600/40 mb-2 block"></i>
+          <p class="font-serif font-bold text-base text-forest-900">Your cart is empty</p>
+          <span class="text-xs">Select your packaging and plant above to add your first gift!</span>
+        </div>
+      </div>
+
+      <!-- Add Another Plant Combo Button -->
+      <div id="cartAddAnotherWrapper" class="hidden">
+        <button id="cartAddAnotherBtn" class="w-full py-2.5 px-3 rounded-xl border border-dashed border-forest-900/40 text-forest-900 hover:bg-forest-900/5 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors">
+          <i class="ph ph-plus-circle text-sm text-gold-600"></i>
+          <span>Add Another Plant Combo</span>
+        </button>
+      </div>
+
+      <!-- Delivery Address Section -->
+      <div id="cartAddressSection" class="hidden bg-cream-50/70 border border-cream-300 rounded-2xl p-4 space-y-3">
+        <div class="flex items-center gap-2 text-forest-900">
+          <i class="ph ph-map-pin text-gold-600 text-base"></i>
+          <h4 class="font-serif font-bold text-sm">Delivery Address & Contact</h4>
+        </div>
+
+        <div class="space-y-2.5">
+          <div>
+            <label class="block text-[11px] font-semibold text-charcoal-700 mb-1" for="addrName">Full Name *</label>
+            <input id="addrName" type="text" placeholder="Recipient or your name" class="w-full px-3 py-2 text-xs bg-white border border-cream-300 rounded-lg focus:ring-1 focus:ring-gold-500 focus:border-gold-500 outline-none">
+          </div>
+
+          <div>
+            <label class="block text-[11px] font-semibold text-charcoal-700 mb-1" for="addrPhone">WhatsApp Mobile Number *</label>
+            <input id="addrPhone" type="tel" maxlength="10" placeholder="10-digit mobile number" class="w-full px-3 py-2 text-xs bg-white border border-cream-300 rounded-lg focus:ring-1 focus:ring-gold-500 focus:border-gold-500 outline-none">
+          </div>
+
+          <div>
+            <label class="block text-[11px] font-semibold text-charcoal-700 mb-1" for="addrStreet">Full Delivery Address *</label>
+            <textarea id="addrStreet" rows="2" placeholder="House/Flat No., Street, Landmark" class="w-full px-3 py-2 text-xs bg-white border border-cream-300 rounded-lg focus:ring-1 focus:ring-gold-500 focus:border-gold-500 outline-none resize-none"></textarea>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-[11px] font-semibold text-charcoal-700 mb-1" for="addrCity">City / Town *</label>
+              <input id="addrCity" type="text" value="Amalapuram, Konaseema" class="w-full px-3 py-2 text-xs bg-white border border-cream-300 rounded-lg focus:ring-1 focus:ring-gold-500 focus:border-gold-500 outline-none">
+            </div>
+            <div>
+              <label class="block text-[11px] font-semibold text-charcoal-700 mb-1" for="addrPincode">Pincode *</label>
+              <input id="addrPincode" type="text" maxlength="6" placeholder="6-digit PIN" class="w-full px-3 py-2 text-xs bg-white border border-cream-300 rounded-lg focus:ring-1 focus:ring-gold-500 focus:border-gold-500 outline-none">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Fixed Cart Footer with WhatsApp Checkout -->
+    <div id="cartFooter" class="flex-shrink-0 px-5 py-4 border-t border-cream-300 bg-white shadow-dock space-y-2.5 hidden">
+      <div class="flex items-center justify-between text-xs">
+        <span class="text-charcoal-500">Total Gifts:</span>
+        <strong id="cartSummaryPcs" class="font-bold text-forest-900">0 pcs</strong>
+      </div>
+      <div class="flex items-center justify-between">
+        <span class="text-xs text-charcoal-500">Grand Total:</span>
+        <strong id="cartSummaryTotal" class="font-serif text-xl font-bold text-forest-900">₹0</strong>
+      </div>
+      <div class="flex items-center justify-between text-[11px] text-forest-700 bg-forest-900/5 px-2.5 py-1 rounded">
+        <span>Delivery across Konaseema:</span>
+        <span class="font-bold text-emerald-700">FREE</span>
+      </div>
+
+      <!-- WhatsApp Order CTA -->
+      <button id="whatsappOrderBtn" class="w-full bg-[#25D366] hover:bg-[#20bd5a] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 shadow-md transition-all">
+        <i class="ph ph-whatsapp-logo text-lg"></i>
+        <span>Order via WhatsApp (7794022444)</span>
+      </button>
     </div>
 
   </div>
 
-  <script src="script.js"></script>
+  <!-- Toast Notification -->
+  <div id="toastNotification" class="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 bg-forest-950 text-cream-50 px-4 py-2.5 rounded-full text-xs font-semibold shadow-luxury flex items-center gap-2 opacity-0 pointer-events-none transition-all duration-300">
+    <i class="ph ph-check-circle text-gold-400 text-base"></i>
+    <span id="toastMessage">Added to Cart!</span>
+  </div>
+
+  <!-- INTERACTIVITY SCRIPT -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // State
+      let selectedBox = {
+        id: 'window-box',
+        name: 'White Window Box',
+        price: 150,
+        img: 'designs/design3_window_box.png'
+      };
+
+      let selectedPlant = {
+        id: 'rose',
+        name: 'Red Rose Plant',
+        price: 199,
+        img: 'plants/rose.jpg'
+      };
+
+      let currentBigLabel = 'Happy New Year 2027';
+      let currentPersonalMsg = 'Wishing you happiness, good health and prosperity!';
+      let cart = [];
+
+      // Elements
+      const previewBoxImg = document.getElementById('previewBoxImg');
+      const previewPlantThumb = document.getElementById('previewPlantThumb');
+      const previewPlantTitle = document.getElementById('previewPlantTitle');
+      const previewPriceBadge = document.getElementById('previewPriceBadge');
+      const previewLabelTag = document.getElementById('preview-label-tag');
+      const previewMessageText = document.getElementById('preview-message-text');
+      const summaryBoxName = document.getElementById('summaryBoxName');
+      const summaryPlantName = document.getElementById('summaryPlantName');
+      const bottomTotalPrice = document.getElementById('bottomTotalPrice');
+
+      const packagingCards = document.querySelectorAll('.packaging-card');
+      const plantCards = document.querySelectorAll('.plant-card');
+
+      const bigLabelInput = document.getElementById('big-label-input');
+      const personalMessageInput = document.getElementById('personal-message');
+      const occasionPills = document.querySelectorAll('.occasion-pill');
+
+      const addToCartBtn = document.getElementById('addToCartBtn');
+      const viewCartBtn = document.getElementById('viewCartBtn');
+      const headerCartBtn = document.getElementById('headerCartBtn');
+      const closeCartBtn = document.getElementById('closeCartBtn');
+      const cartDrawer = document.getElementById('cartDrawer');
+      const cartBackdrop = document.getElementById('cartBackdrop');
+
+      const headerCartCount = document.getElementById('headerCartCount');
+      const bottomCartCount = document.getElementById('bottomCartCount');
+      const cartHeaderQty = document.getElementById('cartHeaderQty');
+      const cartItemsList = document.getElementById('cartItemsList');
+      const emptyCartState = document.getElementById('emptyCartState');
+      const cartAddAnotherWrapper = document.getElementById('cartAddAnotherWrapper');
+      const cartAddAnotherBtn = document.getElementById('cartAddAnotherBtn');
+      const cartAddressSection = document.getElementById('cartAddressSection');
+      const cartFooter = document.getElementById('cartFooter');
+      const cartSummaryPcs = document.getElementById('cartSummaryPcs');
+      const cartSummaryTotal = document.getElementById('cartSummaryTotal');
+
+      const addrName = document.getElementById('addrName');
+      const addrPhone = document.getElementById('addrPhone');
+      const addrStreet = document.getElementById('addrStreet');
+      const addrCity = document.getElementById('addrCity');
+      const addrPincode = document.getElementById('addrPincode');
+      const whatsappOrderBtn = document.getElementById('whatsappOrderBtn');
+
+      const toastNotification = document.getElementById('toastNotification');
+      const toastMessage = document.getElementById('toastMessage');
+
+      // Update Live Preview & Prices
+      function updatePreview() {
+        const total = selectedBox.price + selectedPlant.price;
+
+        if (previewBoxImg) previewBoxImg.src = selectedBox.img;
+        if (previewPlantThumb) previewPlantThumb.src = selectedPlant.img;
+        if (previewPlantTitle) previewPlantTitle.textContent = `${selectedPlant.name}`;
+        if (previewPriceBadge) previewPriceBadge.textContent = `₹${total}`;
+        if (bottomTotalPrice) bottomTotalPrice.textContent = `₹${total}`;
+
+        if (summaryBoxName) summaryBoxName.textContent = selectedBox.name;
+        if (summaryPlantName) summaryPlantName.textContent = selectedPlant.name;
+
+        const label = currentBigLabel.trim() || 'Custom Gift Tag';
+        if (previewLabelTag) previewLabelTag.textContent = label;
+
+        const msg = currentPersonalMsg.trim() || 'Wishing you happiness and prosperity!';
+        if (previewMessageText) previewMessageText.textContent = `"${msg}"`;
+      }
+
+      // Step 1: Packaging Card Selection
+      packagingCards.forEach(card => {
+        card.addEventListener('click', () => {
+          packagingCards.forEach(c => {
+            c.classList.remove('border-2', 'border-forest-900', 'bg-cream-50/70');
+            c.classList.add('border', 'border-cream-300', 'bg-white');
+            const ind = c.querySelector('.radio-indicator');
+            if (ind) {
+              ind.className = 'radio-indicator absolute top-2 right-2 w-5 h-5 border border-charcoal-400 bg-white/90 rounded-full flex items-center justify-center';
+              ind.innerHTML = '';
+            }
+            const status = c.querySelector('.status-label');
+            if (status) {
+              status.className = 'status-label text-[10px] text-charcoal-400';
+              status.textContent = 'Select';
+            }
+          });
+
+          card.classList.remove('border', 'border-cream-300', 'bg-white');
+          card.classList.add('border-2', 'border-forest-900', 'bg-cream-50/70');
+          const ind = card.querySelector('.radio-indicator');
+          if (ind) {
+            ind.className = 'radio-indicator absolute top-2 right-2 w-5 h-5 bg-forest-900 text-gold-400 rounded-full flex items-center justify-center shadow';
+            ind.innerHTML = '<i class="ph ph-check text-xs font-bold"></i>';
+          }
+          const status = card.querySelector('.status-label');
+          if (status) {
+            status.className = 'status-label text-[10px] text-gold-700 font-semibold uppercase tracking-wider';
+            status.textContent = 'Selected';
+          }
+
+          selectedBox = {
+            id: card.dataset.id,
+            name: card.dataset.name,
+            price: parseInt(card.dataset.price, 10),
+            img: card.dataset.img
+          };
+
+          updatePreview();
+        });
+      });
+
+      // Step 2: Plant Card Selection
+      plantCards.forEach(card => {
+        card.addEventListener('click', () => {
+          plantCards.forEach(c => {
+            c.classList.remove('border-2', 'border-forest-900', 'bg-cream-50/70');
+            c.classList.add('border', 'border-cream-300', 'bg-white');
+            const ind = c.querySelector('.radio-indicator');
+            if (ind) {
+              ind.className = 'radio-indicator absolute top-2 right-2 w-5 h-5 border border-charcoal-400 bg-white/90 rounded-full flex items-center justify-center';
+              ind.innerHTML = '';
+            }
+            const status = c.querySelector('.status-label');
+            if (status) {
+              status.className = 'status-label text-[10px] text-charcoal-400';
+              status.textContent = 'Select';
+            }
+          });
+
+          card.classList.remove('border', 'border-cream-300', 'bg-white');
+          card.classList.add('border-2', 'border-forest-900', 'bg-cream-50/70');
+          const ind = card.querySelector('.radio-indicator');
+          if (ind) {
+            ind.className = 'radio-indicator absolute top-2 right-2 w-5 h-5 bg-forest-900 text-gold-400 rounded-full flex items-center justify-center shadow';
+            ind.innerHTML = '<i class="ph ph-check text-xs font-bold"></i>';
+          }
+          const status = card.querySelector('.status-label');
+          if (status) {
+            status.className = 'status-label text-[10px] text-gold-700 font-semibold uppercase tracking-wider';
+            status.textContent = 'Selected';
+          }
+
+          selectedPlant = {
+            id: card.dataset.id,
+            name: card.dataset.name,
+            price: parseInt(card.dataset.price, 10),
+            img: card.dataset.img
+          };
+
+          updatePreview();
+        });
+      });
+
+      // Step 3: Big Label & Message
+      if (bigLabelInput) {
+        bigLabelInput.addEventListener('input', (e) => {
+          currentBigLabel = e.target.value;
+          updatePreview();
+        });
+      }
+
+      occasionPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          occasionPills.forEach(p => {
+            p.className = 'occasion-pill px-2.5 py-1 rounded-full text-xs font-medium bg-cream-100 text-charcoal-700 hover:bg-cream-200 border border-cream-300 transition-colors';
+          });
+          pill.className = 'occasion-pill px-2.5 py-1 rounded-full text-xs font-medium bg-forest-900 text-gold-400 shadow-xs ring-1 ring-forest-900';
+          const txt = pill.dataset.text;
+          if (bigLabelInput) bigLabelInput.value = txt;
+          currentBigLabel = txt;
+          updatePreview();
+        });
+      });
+
+      if (personalMessageInput) {
+        personalMessageInput.addEventListener('input', (e) => {
+          currentPersonalMsg = e.target.value;
+          updatePreview();
+        });
+      }
+
+      // Toast Helper
+      let toastTimer = null;
+      function showToast(msg) {
+        if (!toastNotification || !toastMessage) return;
+        toastMessage.textContent = msg;
+        toastNotification.classList.remove('opacity-0', 'pointer-events-none');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toastNotification.classList.add('opacity-0', 'pointer-events-none');
+        }, 2200);
+      }
+
+      // Cart Drawer Toggle
+      function openCart() {
+        renderCart();
+        cartDrawer.classList.remove('translate-y-full');
+        cartBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeCart() {
+        cartDrawer.classList.add('translate-y-full');
+        cartBackdrop.classList.add('opacity-0', 'pointer-events-none');
+        document.body.style.overflow = '';
+      }
+
+      if (viewCartBtn) viewCartBtn.addEventListener('click', openCart);
+      if (headerCartBtn) headerCartBtn.addEventListener('click', openCart);
+      if (closeCartBtn) closeCartBtn.addEventListener('click', closeCart);
+      if (cartBackdrop) cartBackdrop.addEventListener('click', closeCart);
+
+      if (cartAddAnotherBtn) {
+        cartAddAnotherBtn.addEventListener('click', () => {
+          closeCart();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      // Add To Cart
+      if (addToCartBtn) {
+        addToCartBtn.addEventListener('click', () => {
+          const unitPrice = selectedBox.price + selectedPlant.price;
+          const label = currentBigLabel.trim() || 'Happy New Year 2027';
+          const msg = currentPersonalMsg.trim() || 'Wishing you happiness and prosperity!';
+
+          const existingIndex = cart.findIndex(item => 
+            item.box.id === selectedBox.id &&
+            item.plant.id === selectedPlant.id &&
+            item.bigLabel === label &&
+            item.personalMsg === msg
+          );
+
+          if (existingIndex > -1) {
+            cart[existingIndex].qty += 1;
+          } else {
+            cart.push({
+              id: Date.now(),
+              box: { ...selectedBox },
+              plant: { ...selectedPlant },
+              bigLabel: label,
+              personalMsg: msg,
+              unitPrice: unitPrice,
+              qty: 1
+            });
+          }
+
+          updateCartCounts();
+          showToast(`Added ${selectedPlant.name} combo to cart!`);
+        });
+      }
+
+      // Update Counts
+      function updateCartCounts() {
+        const total = cart.reduce((sum, item) => sum + item.qty, 0);
+        if (headerCartCount) headerCartCount.textContent = total;
+        if (bottomCartCount) bottomCartCount.textContent = total;
+        if (cartHeaderQty) cartHeaderQty.textContent = `${total} pcs`;
+      }
+
+      // Render Cart
+      function renderCart() {
+        if (cart.length === 0) {
+          if (emptyCartState) emptyCartState.style.display = 'block';
+          if (cartAddAnotherWrapper) cartAddAnotherWrapper.classList.add('hidden');
+          if (cartAddressSection) cartAddressSection.classList.add('hidden');
+          if (cartFooter) cartFooter.classList.add('hidden');
+          if (cartItemsList) {
+            cartItemsList.innerHTML = '';
+            cartItemsList.appendChild(emptyCartState);
+          }
+          updateCartCounts();
+          return;
+        }
+
+        if (emptyCartState) emptyCartState.style.display = 'none';
+        if (cartAddAnotherWrapper) cartAddAnotherWrapper.classList.remove('hidden');
+        if (cartAddressSection) cartAddressSection.classList.remove('hidden');
+        if (cartFooter) cartFooter.classList.remove('hidden');
+
+        let html = '';
+        let grandTotal = 0;
+        let totalPcs = 0;
+
+        cart.forEach((item, index) => {
+          const itemTotal = item.unitPrice * item.qty;
+          grandTotal += itemTotal;
+          totalPcs += item.qty;
+
+          html += `
+            <div class="bg-cream-50/70 border border-cream-300 rounded-2xl p-3 space-y-2.5 shadow-xs" data-index="${index}">
+              <div class="flex items-center gap-3">
+                <div class="relative w-14 h-14 rounded-xl overflow-hidden bg-white border border-cream-300 p-1 flex-shrink-0 flex items-center justify-center">
+                  <img src="${item.box.img}" alt="${item.box.name}" class="w-full h-full object-contain">
+                  <img src="${item.plant.img}" alt="${item.plant.name}" class="absolute top-1 left-1 w-5 h-5 rounded-full object-cover border border-white shadow">
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h4 class="font-serif font-bold text-xs text-forest-900 truncate">${item.plant.name}</h4>
+                  <p class="text-[10px] text-gold-700 font-medium">${item.box.name}</p>
+                  <span class="text-xs font-bold text-forest-900">₹${item.unitPrice} each</span>
+                </div>
+                <div class="flex items-center gap-1.5 bg-white border border-cream-300 rounded-lg p-1">
+                  <button class="cart-dec-btn w-5 h-5 rounded bg-cream-100 text-forest-900 font-bold text-xs flex items-center justify-center hover:bg-cream-200" data-index="${index}">-</button>
+                  <span class="text-xs font-bold px-1 text-forest-900">${item.qty}</span>
+                  <button class="cart-inc-btn w-5 h-5 rounded bg-cream-100 text-forest-900 font-bold text-xs flex items-center justify-center hover:bg-cream-200" data-index="${index}">+</button>
+                </div>
+              </div>
+
+              <!-- Big Label Tag & Message Plaque -->
+              <div class="bg-white border border-dashed border-gold-400/60 rounded-xl p-2 space-y-1">
+                <div class="flex items-center gap-1.5 text-[11px] font-semibold text-gold-700">
+                  <i class="ph ph-tag text-xs"></i>
+                  <span>Big Label:</span>
+                  <span class="font-bold text-forest-900 bg-gold-400/20 px-1.5 py-0.2 rounded">"${escapeHtml(item.bigLabel)}"</span>
+                </div>
+                <div class="text-[10px] text-charcoal-700 italic flex items-start gap-1">
+                  <i class="ph ph-envelope-simple text-xs text-gold-600 mt-0.5 flex-shrink-0"></i>
+                  <span>"${escapeHtml(item.personalMsg)}"</span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between text-xs pt-1 border-t border-cream-200">
+                <span class="text-charcoal-500">Subtotal:</span>
+                <strong class="font-bold text-forest-900">₹${itemTotal}</strong>
+              </div>
+            </div>
+          `;
+        });
+
+        if (cartItemsList) cartItemsList.innerHTML = html;
+        if (cartSummaryPcs) cartSummaryPcs.textContent = `${totalPcs} pcs`;
+        if (cartSummaryTotal) cartSummaryTotal.textContent = `₹${grandTotal}`;
+        updateCartCounts();
+
+        // Bind Quantity Steppers
+        if (cartItemsList) {
+          cartItemsList.querySelectorAll('.cart-inc-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const idx = parseInt(btn.dataset.index, 10);
+              cart[idx].qty += 1;
+              renderCart();
+            });
+          });
+
+          cartItemsList.querySelectorAll('.cart-dec-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const idx = parseInt(btn.dataset.index, 10);
+              if (cart[idx].qty > 1) {
+                cart[idx].qty -= 1;
+              } else {
+                cart.splice(idx, 1);
+              }
+              renderCart();
+            });
+          });
+        }
+      }
+
+      // WhatsApp Checkout Integration (Direct to 7794022444)
+      if (whatsappOrderBtn) {
+        whatsappOrderBtn.addEventListener('click', () => {
+          if (cart.length === 0) {
+            showToast('Please add a plant to your cart first!');
+            return;
+          }
+
+          const name = addrName ? addrName.value.trim() : '';
+          const phone = addrPhone ? addrPhone.value.trim() : '';
+          const street = addrStreet ? addrStreet.value.trim() : '';
+          const city = addrCity ? addrCity.value.trim() : 'Amalapuram, Konaseema';
+          const pincode = addrPincode ? addrPincode.value.trim() : '';
+
+          if (!name) {
+            showToast('⚠️ Please enter recipient/customer name');
+            if (addrName) addrName.focus();
+            return;
+          }
+          if (!phone || phone.length < 10) {
+            showToast('⚠️ Please enter 10-digit WhatsApp number');
+            if (addrPhone) addrPhone.focus();
+            return;
+          }
+          if (!street) {
+            showToast('⚠️ Please enter your delivery address');
+            if (addrStreet) addrStreet.focus();
+            return;
+          }
+
+          let grandTotal = 0;
+          let totalPcs = 0;
+
+          let message = `🌿 *New Plant Gift Enquiry – Konaseema Greens* 🌿\n`;
+          message += `Hello! I'm interested in ordering plant gifts.\n\n`;
+
+          cart.forEach((item, idx) => {
+            const itemSubtotal = item.unitPrice * item.qty;
+            grandTotal += itemSubtotal;
+            totalPcs += item.qty;
+
+            message += `*Gift #${idx + 1}:*\n`;
+            message += `  📦 *Packaging:* ${item.box.name}\n`;
+            message += `  🌱 *Plant:* ${item.plant.name}\n`;
+            message += `  🏷️ *Big Label:* ${item.bigLabel}\n`;
+            message += `  💌 *Personal Message:* ${item.personalMsg}\n`;
+            message += `  🔢 *Quantity:* ${item.qty} pcs (₹${item.unitPrice} each)\n`;
+            message += `  💵 *Subtotal:* ₹${itemSubtotal}\n\n`;
+          });
+
+          message += `------------------------------------\n`;
+          message += `📦 *Total Gifts:* ${totalPcs} pcs\n`;
+          message += `💰 *Grand Total Amount:* ₹${grandTotal}\n`;
+          message += `🚚 *Delivery Charge:* FREE (Konaseema)\n\n`;
+          message += `📍 *Delivery Address:*\n`;
+          message += `${name} (Phone: ${phone})\n`;
+          message += `${street}, ${city}`;
+          if (pincode) {
+            message += ` - ${pincode}`;
+          }
+          message += `\n------------------------------------\n`;
+          message += `Please share the pricing and availability. Thank you! 🌱✨`;
+
+          const encodedMsg = encodeURIComponent(message);
+          const whatsappUrl = `https://wa.me/917794022444?text=${encodedMsg}`;
+          window.open(whatsappUrl, '_blank');
+        });
+      }
+
+      function escapeHtml(str) {
+        return str.replace(/[&<>'"]/g, 
+          tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+        );
+      }
+
+      // Initial
+      updatePreview();
+    });
+  </script>
+
 </body>
 </html>
