@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Konaseema Greens – Customize Plant Gift</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Mobile App Wrapper -->
+  <div class="mobile-app-container">
+
+    <!-- Top Brand Header with Logo -->
+    <header class="app-header">
+      <div class="header-left">
+        <img src="logo.png" alt="Konaseema Greens Logo" class="brand-logo">
+        <div class="brand-info">
+          <h1 class="brand-name">Konaseema Greens</h1>
+          <span class="brand-tagline">Custom Plant Gifting</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="app-content">
+
+      <!-- Live Gift Preview Hero -->
+      <section class="preview-hero">
+        <div class="preview-stage" id="previewStage">
+          <div class="preview-header-row">
+            <span class="preview-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Live Gift Preview</span>
+            <span class="preview-total-badge" id="previewPriceBadge">₹349</span>
+          </div>
+
+          <div class="preview-visual-box">
+            <!-- Selected Packaging Box (Real photo) -->
+            <img src="designs/design3_window_box.png" alt="Selected Box Design" id="previewBoxImg" class="preview-box-main-img">
+
+            <!-- Selected Plant Overlay Badge -->
+            <div class="plant-combo-badge" id="previewPlantBadge">
+              <img src="plants/rose.jpg" alt="Plant thumbnail" id="previewPlantThumb" class="combo-thumb">
+              <span id="previewPlantName">Red Rose Plant</span>
+            </div>
+
+            <!-- Big Label Overlay (Printed on Gift) -->
+            <div class="custom-gift-tag" id="previewTagOverlay">
+              <div class="tag-body">
+                <i class="fa-solid fa-tag"></i>
+                <span class="tag-text" id="previewTagText">Happy New Year 2027</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Personal Message Preview Box -->
+          <div class="preview-message-card" id="previewMessageCard">
+            <i class="fa-solid fa-envelope-open-text msg-icon"></i>
+            <span class="msg-quote" id="previewMsgText">"Wishing you happiness, good health and prosperity!"</span>
+          </div>
+
+          <div class="preview-summary-bar">
+            <div class="summary-details">
+              <strong id="previewSummaryTitle">White Window Box + Red Rose Plant</strong>
+              <span id="previewSummaryTag">Big Label: "Happy New Year 2027"</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 1: Choose Packaging Style (from Reference PDF Step 1) -->
+      <section class="selection-section">
+        <div class="section-title-row">
+          <span class="step-bubble">1</span>
+          <div>
+            <h2>Choose Packaging Style</h2>
+            <p>Signature handcrafted boxes & pots (photographs below)</p>
+          </div>
+        </div>
+
+        <div class="cards-grid" id="bucketsGrid">
+          <!-- 1. White Window Box -->
+          <div class="option-card selected" data-type="box" data-id="window-box" data-name="White Window Box" data-price="150" data-img="designs/design3_window_box.png">
+            <div class="card-radio"><i class="fa-solid fa-circle-check"></i></div>
+            <div class="img-wrapper box-img-wrap">
+              <img src="designs/design3_window_box.png" alt="White Window Gift Box">
+            </div>
+            <div class="card-info">
+              <h3>White Window Box</h3>
+              <span class="card-sub">Die-Cut Window & Satin Bow</span>
+              <span class="card-price">₹150</span>
+            </div>
+          </div>
+
+          <!-- 2. Kalpavriksha Blue Box -->
+          <div class="option-card" data-type="box" data-id="kalpavriksha" data-name="Kalpavriksha Box" data-price="160" data-img="designs/design1_kalpavriksha.png">
+            <div class="card-radio"><i class="fa-regular fa-circle"></i></div>
+            <div class="img-wrapper box-img-wrap">
+              <img src="designs/design1_kalpavriksha.png" alt="Kalpavriksha Blue Box">
+            </div>
+            <div class="card-info">
+              <h3>Kalpavriksha Box</h3>
+              <span class="card-sub">Festive Konaseema Art</span>
+              <span class="card-price">₹160</span>
+            </div>
+          </div>
+
+          <!-- 3. Kraft Paper Ribbon Pot -->
+          <div class="option-card" data-type="box" data-id="kraft-pot" data-name="Kraft Paper Pot" data-price="100" data-img="designs/design2_kraft_pot.png">
+            <div class="card-radio"><i class="fa-regular fa-circle"></i></div>
+            <div class="img-wrapper box-img-wrap">
+              <img src="designs/design2_kraft_pot.png" alt="Kraft Paper Ribbon Pot">
+            </div>
+            <div class="card-info">
+              <h3>Kraft Paper Pot</h3>
+              <span class="card-sub">Organic Wrap + Red Bow</span>
+              <span class="card-price">₹100</span>
+            </div>
+          </div>
+
+          <!-- 4. Temple Diya Motif Box -->
+          <div class="option-card" data-type="box" data-id="temple-box" data-name="Temple Diya Box" data-price="160" data-img="designs/design4_temple_box.png">
+            <div class="card-radio"><i class="fa-regular fa-circle"></i></div>
+            <div class="img-wrapper box-img-wrap">
+              <img src="designs/design4_temple_box.png" alt="Temple Diya Motif Box">
+            </div>
+            <div class="card-info">
+              <h3>Temple Diya Box</h3>
+              <span class="card-sub">Pooja & Housewarming</span>
+              <span class="card-price">₹160</span>
+            </div>
+          </div>
+
+          <!-- 5. Botanical Celebration Pouch -->
+          <div class="option-card" data-type="box" data-id="celebration-pouch" data-name="Celebration Pouch" data-price="130" data-img="designs/design5_celebration_pouch.png">
+            <div class="card-radio"><i class="fa-regular fa-circle"></i></div>
+            <div class="img-wrapper box-img-wrap">
+              <img src="designs/design5_celebration_pouch.png" alt="Botanical Celebration Pouch">
+            </div>
+            <div class="card-info">
+              <h3>Celebration Pouch</h3>
+              <span class="card-sub">Heart Tag Return Gift</span>
+              <span class="card-price">₹130</span>
+            </div>
+          </div>
+
+          <!-- 6. Handle Carrier Caddy -->
+          <div class="option-card" data-type="box" data-id="carrier-box" data-name="Handle Caddy Box" data-price="140" data-img="designs/design6_carrier_box.png">
+            <div class="card-radio"><i class="fa-regular fa-circle"></i></div>
+            <div class="img-wrapper box-img-wrap">
+              <img src="designs/design6_carrier_box.png" alt="Handle Carrier Box">
+            </div>
+            <div class="card-info">
+              <h3>Handle Caddy Box</h3>
+              <span class="card-sub">Modern Open Carrier</span>
+              <span class="card-price">₹140</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 2: Choose Plant Variety (from Reference PDF Step 2) -->
+      <section class="selection-section">
+        <div class="section-title-row">
+          <span class="step-bubble">2</span>
+          <div>
+            <h2>Choose Plant Variety</h2>
+            <p>Popular flowering & healthy green plants</p>
+          </div>
+        </div>
+
+        <div class="cards-grid" id="plantsGrid">
+          <!-- 1. Red Rose -->
+          <div class="option-card selected" data-type="plant" data-id="rose" data-name="Red Rose Plant" data-price="199" data-img="plants/rose.jpg">
+            <div class="card-radio"><i class="fa-solid fa-circle-check"></i></div>
+            <div class="img-wrapper">
+              <img src="plants/rose.jpg" alt="Red Rose Plant">
+            </div>
+            <div class="card-info">
+              <h3>Red Rose Plant</h3>
+              <span class="card-sub">Classic Fragrant Rose</span>
+              <span class="card-price">₹199</span>
+            </div>
+          </div>
+
+          <!-- 2. Jasmine / Mogra -->
+          <div class="option-card" data-type="plant" data-id="jasmine" data-name="Jasmine / Mogra" data-price="179" data-img="plants/jasmine.jpg">
+            <div class="card-radio"><i class="fa-regular fa-circle"></i></div>
+            <div class="img-wrapper">
+              <img src="plants/jasmine.jpg" alt="Jasmine Mogra Plant">
+            </div>
+            <div class="card-info">
+              <h3>Jasmine (Mogra)</h3>
+              <span class="card-sub">Sweet Fragrance Malle</span>
+              <span class="card-price">₹179</span>
+            </div>
+          </div>
+
+          <!-- 3. Hibiscus -->
+          <div class="option-card" data-type="plant" data-id="hibiscus" data-name="Red Hibiscus" data-price="189" data-img="plants/hibiscus.jpg">
+            <div class="card-radio"><i class="fa-regular fa-circle"></i></div>
+            <div class="img-wrapper">
+              <img src="plants/hibiscus.jpg" alt="Hibiscus Plant">
+            </div>
+            <div class="card-info">
+              <h3>Red Hibiscus</h3>
+              <span class="card-sub">Mandaram Blooms</span>
+              <span class="card-price">₹189</span>
+            </div>
+          </div>
+
+          <!-- 4. Tulasi -->
+          <div class="option-card" data-type="plant" data-id="tulasi" data-name="Sacred Tulasi" data-price="149" data-img="plants/tulasi.jpg">
+            <div class="card-radio"><i class="fa-regular fa-circle"></i></div>
+            <div class="img-wrapper">
+              <img src="plants/tulasi.jpg" alt="Tulasi Plant">
+            </div>
+            <div class="card-info">
+              <h3>Sacred Tulasi</h3>
+              <span class="card-sub">Holy Basil & Positivity</span>
+              <span class="card-price">₹149</span>
+            </div>
+          </div>
+
+          <!-- 5. Money Plant -->
+          <div class="option-card" data-type="plant" data-id="money-plant" data-name="Money Plant" data-price="169" data-img="plants/money_plant.jpg">
+            <div class="card-radio"><i class="fa-regular fa-circle"></i></div>
+            <div class="img-wrapper">
+              <img src="plants/money_plant.jpg" alt="Money Plant">
+            </div>
+            <div class="card-info">
+              <h3>Money Plant</h3>
+              <span class="card-sub">Fortune Golden Pothos</span>
+              <span class="card-price">₹169</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 3: Add Big Label & Personal Message (from Reference PDF Step 3) -->
+      <section class="selection-section">
+        <div class="section-title-row">
+          <span class="step-bubble">3</span>
+          <div>
+            <h2>Add Big Label & Personal Message</h2>
+            <p>Printed on the gift box tag and custom message card</p>
+          </div>
+        </div>
+
+        <div class="label-message-inputs">
+          <!-- 3A. Big Label Input -->
+          <div class="input-block">
+            <label for="bigLabelInput" class="input-label-row">
+              <span><i class="fa-solid fa-tag"></i> <strong>Big Label</strong> (Printed on gift box)</span>
+            </label>
+            <div class="input-with-icon">
+              <i class="fa-solid fa-pen"></i>
+              <input 
+                type="text" 
+                id="bigLabelInput" 
+                placeholder="e.g. Happy New Year 2027, Happy Birthday..." 
+                value="Happy New Year 2027"
+                maxlength="30"
+                autocomplete="off"
+              >
+            </div>
+            <div class="tag-chips">
+              <span class="chip active" data-text="Happy New Year 2027">New Year 2027</span>
+              <span class="chip" data-text="Happy Birthday 🎂">Happy Birthday</span>
+              <span class="chip" data-text="Congratulations ✨">Congratulations</span>
+              <span class="chip" data-text="Warm Welcome 🏡">Warm Welcome</span>
+              <span class="chip" data-text="Best Wishes 🌸">Best Wishes</span>
+            </div>
+          </div>
+
+          <!-- 3B. Personal Message Input -->
+          <div class="input-block" style="margin-top: 14px;">
+            <label for="personalMessageInput" class="input-label-row">
+              <span><i class="fa-solid fa-envelope"></i> <strong>Personal Message</strong> (Gift note card)</span>
+            </label>
+            <div class="input-with-icon">
+              <textarea 
+                id="personalMessageInput" 
+                rows="2" 
+                placeholder="Write a warm custom message to accompany the plant gift..."
+              >Wishing you happiness, good health and prosperity!</textarea>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 4: Select Quantity & Add Orders -->
+      <section class="selection-section quantity-section">
+        <div class="section-title-row">
+          <span class="step-bubble">4</span>
+          <div>
+            <h2>Select Quantity & Add Orders</h2>
+            <p>Single gift or bulk quantities for functions</p>
+          </div>
+        </div>
+
+        <!-- Quantity Stepper -->
+        <div class="order-quantity-row">
+          <div class="stepper-box">
+            <button class="step-btn" id="qtyMinusBtn" aria-label="Decrease quantity">
+              <i class="fa-solid fa-minus"></i>
+            </button>
+            <input type="number" id="orderQtyInput" class="step-input" value="1" min="1" max="500">
+            <button class="step-btn" id="qtyPlusBtn" aria-label="Increase quantity">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </div>
+          <div class="bulk-subtotal-info">
+            <span class="subtotal-label">Subtotal for this item:</span>
+            <strong class="subtotal-amt" id="itemSubtotalAmt">₹349</strong>
+          </div>
+        </div>
+
+        <!-- Quick Quantity Presets -->
+        <div class="quick-qty-chips">
+          <span class="qty-preset active" data-qty="1">1 pc</span>
+          <span class="qty-preset" data-qty="5">5 pcs</span>
+          <span class="qty-preset" data-qty="10">10 pcs</span>
+          <span class="qty-preset" data-qty="25">25 pcs</span>
+          <span class="qty-preset" data-qty="50">50 pcs</span>
+          <span class="qty-preset" data-qty="100">100+ Bulk</span>
+        </div>
+
+        <!-- Multi-Order Actions -->
+        <div class="multi-order-actions">
+          <button class="add-order-cart-btn" id="addCurrentOrderBtn">
+            <i class="fa-solid fa-cart-plus"></i>
+            <span>Add to Cart</span>
+          </button>
+          <button class="add-more-orders-btn" id="addMoreOrdersBtn">
+            <i class="fa-solid fa-plus-circle"></i>
+            <span>+ Add Another Plant</span>
+          </button>
+        </div>
+      </section>
+
+      <div class="bottom-spacer"></div>
+    </main>
+
+    <!-- Bottom Sticky Action Bar -->
+    <div class="sticky-bottom-bar">
+      <div class="price-block">
+        <span class="total-label">Total for <span id="barQtyCount">1</span> item:</span>
+        <span class="total-amount" id="barTotalPrice">₹349</span>
+      </div>
+      <div class="bottom-bar-actions">
+        <button class="add-to-cart-btn" id="stickyAddToCartBtn">
+          <i class="fa-solid fa-cart-plus"></i>
+          <span>Add to Cart</span>
+        </button>
+        <button class="sticky-view-cart-btn" id="stickyViewCartBtn">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span>View Cart</span>
+          <span class="bottom-cart-badge" id="bottomCartBadge">0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Slide-Over Cart Drawer Modal (100% Scrollable & Full Visibility) -->
+    <div class="cart-drawer-backdrop" id="cartBackdrop"></div>
+    <div class="cart-drawer" id="cartDrawer">
+      <!-- Fixed Cart Header -->
+      <div class="cart-header">
+        <div class="cart-header-title">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <h3>Your Plant Orders</h3>
+          <span class="cart-items-count-badge" id="cartHeaderBadge">0 pcs</span>
+        </div>
+        <button class="close-cart-btn" id="closeCartBtn" aria-label="Close Cart">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Fully Scrollable Middle Body Container -->
+      <div class="cart-scrollable-body" id="cartScrollableBody">
+        <!-- Cart Items List -->
+        <div class="cart-items-container" id="cartItemsList">
+          <div class="empty-cart-state" id="emptyCartState">
+            <i class="fa-solid fa-seedling empty-icon"></i>
+            <p>Your cart is empty!</p>
+            <span>Pick your packaging & plant above, then tap "Add to Cart".</span>
+          </div>
+        </div>
+
+        <!-- Add Another Order Shortcut Button in Cart -->
+        <div class="cart-add-more-row" id="cartAddMoreRow" style="display: none;">
+          <button class="cart-add-more-btn" id="cartAddMoreBtn">
+            <i class="fa-solid fa-plus"></i> Add Another Plant Combo
+          </button>
+        </div>
+
+        <!-- Delivery Address Section inside Cart -->
+        <div class="cart-address-section" id="cartAddressSection" style="display: none;">
+          <div class="address-section-title">
+            <i class="fa-solid fa-location-dot"></i>
+            <h4>Delivery Address & Contact</h4>
+          </div>
+          <div class="cart-address-form">
+            <div class="address-field">
+              <label for="cartCustName"><i class="fa-solid fa-user"></i> Full Name *</label>
+              <input type="text" id="cartCustName" placeholder="Enter recipient or your name" autocomplete="name">
+            </div>
+            <div class="address-field">
+              <label for="cartCustPhone"><i class="fa-solid fa-phone"></i> WhatsApp Number *</label>
+              <input type="tel" id="cartCustPhone" placeholder="10-digit mobile number" maxlength="10" autocomplete="tel">
+            </div>
+            <div class="address-field">
+              <label for="cartCustAddress"><i class="fa-solid fa-house"></i> Full Delivery Address *</label>
+              <textarea id="cartCustAddress" rows="2" placeholder="House/Flat No., Street, Landmark"></textarea>
+            </div>
+            <div class="address-two-col">
+              <div class="address-field">
+                <label for="cartCustCity"><i class="fa-solid fa-city"></i> City / Town *</label>
+                <input type="text" id="cartCustCity" value="Amalapuram, Konaseema" placeholder="City or Town">
+              </div>
+              <div class="address-field">
+                <label for="cartCustPincode"><i class="fa-solid fa-map-pin"></i> Pincode *</label>
+                <input type="text" id="cartCustPincode" placeholder="6-digit PIN" maxlength="6">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fixed Cart Footer (Always 100% visible, never cut off!) -->
+      <div class="cart-footer" id="cartFooter" style="display: none;">
+        <div class="cart-bill-row">
+          <span>Total Gifts:</span>
+          <strong id="cartTotalItemsCount">0 pcs</strong>
+        </div>
+        <div class="cart-bill-row">
+          <span>Grand Total:</span>
+          <strong class="grand-total-price" id="cartSubtotal">₹0</strong>
+        </div>
+        <div class="cart-bill-row delivery-note">
+          <span>Delivery across Konaseema:</span>
+          <span class="free-text">FREE</span>
+        </div>
+        <button class="whatsapp-checkout-btn" id="whatsappOrderBtn">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>Order via WhatsApp</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast-notification" id="toastNotification">
+      <i class="fa-solid fa-circle-check"></i>
+      <span id="toastMsg">Added to Orders!</span>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
