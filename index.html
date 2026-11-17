@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
   <title>Konaseema Greens - Bespoke Plant Gifting Customizer</title>
-  
+
   <!-- Tailwind CSS CDN with forms and container queries -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cinzel:wght@600;700&display=swap"
+    rel="stylesheet">
+
   <!-- Phosphor Icons -->
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css">
 
   <!-- Tailwind Custom Configuration -->
   <script>
@@ -73,21 +79,34 @@
       --font-serif: 'Newsreader', Georgia, serif;
       --font-sans: 'DM Sans', sans-serif;
     }
+
     body {
       font-family: 'DM Sans', sans-serif;
       -webkit-tap-highlight-color: transparent;
     }
-    h1, h2, h3, .font-serif {
+
+    h1,
+    h2,
+    h3,
+    .font-serif {
       font-family: 'Newsreader', Georgia, serif;
     }
+
     .brand-title {
       font-family: 'Cinzel', 'Newsreader', serif;
       letter-spacing: 0.12em;
     }
+
     @keyframes goldShimmer {
-      0% { background-position: -200% 0; }
-      100% { background-position: 200% 0; }
+      0% {
+        background-position: -200% 0;
+      }
+
+      100% {
+        background-position: 200% 0;
+      }
     }
+
     .gold-gradient-text {
       background: linear-gradient(90deg, #9C7A36 0%, #D8BA7A 50%, #9C7A36 100%);
       background-size: 200% auto;
@@ -95,38 +114,48 @@
       -webkit-text-fill-color: transparent;
       animation: goldShimmer 7s ease-in-out infinite;
     }
+
     .smooth-scroll {
       -webkit-overflow-scrolling: touch;
     }
+
     /* Cart drawer transitions */
     .cart-drawer-backdrop {
       transition: opacity 0.3s ease;
     }
+
     .cart-drawer-panel {
       transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
   </style>
 </head>
+
 <body class="bg-cream-100 text-charcoal-900 font-sans antialiased selection:bg-gold-500 selection:text-white pb-32">
 
   <!-- BEGIN: MainHeader -->
-  <header class="sticky top-0 z-40 bg-forest-900/95 backdrop-blur-md border-b border-forest-800 text-white transition-all shadow-md">
+  <header
+    class="sticky top-0 z-40 bg-forest-900/95 backdrop-blur-md border-b border-forest-800 text-white transition-all shadow-md">
     <div class="max-w-md mx-auto px-4 py-3 flex items-center justify-between">
       <!-- Brand Logo & Atelier Subtitle -->
       <div class="flex items-center gap-2.5">
-        <img src="logo.png" alt="Konaseema Greens Logo" class="w-9 h-9 rounded-full object-cover border border-gold-400/40 shadow-xs bg-forest-950">
+        <img src="logo.png" alt="Konaseema Greens Logo"
+          class="w-9 h-9 rounded-full object-cover border border-gold-400/40 shadow-xs bg-forest-950">
         <div>
           <div class="flex items-center gap-1.5 mb-0.5">
-            <h1 class="font-serif text-base tracking-wider uppercase font-semibold text-cream-50 brand-title">Konaseema Greens</h1>
+            <h1 class="font-serif text-base tracking-wider uppercase font-semibold text-cream-50 brand-title">Konaseema
+              Greens</h1>
           </div>
           <p class="text-[9px] font-medium tracking-[0.22em] text-gold-400 uppercase">Bespoke Botanical Gifting</p>
         </div>
       </div>
-      
+
       <!-- Mini Cart Button with Counter -->
-      <button id="headerCartBtn" aria-label="View Shopping Cart" class="relative w-9 h-9 rounded-full flex items-center justify-center text-cream-200 hover:text-gold-400 hover:bg-forest-800/80 transition-colors" type="button">
+      <button id="headerCartBtn" aria-label="View Shopping Cart"
+        class="relative w-9 h-9 rounded-full flex items-center justify-center text-cream-200 hover:text-gold-400 hover:bg-forest-800/80 transition-colors"
+        type="button">
         <i class="ph ph-handbag text-xl"></i>
-        <span id="headerCartCount" class="absolute top-0.5 -right-0.5 w-4 h-4 bg-gold-500 text-forest-950 font-bold text-[10px] rounded-full flex items-center justify-center ring-2 ring-forest-900">0</span>
+        <span id="headerCartCount"
+          class="absolute top-0.5 -right-0.5 w-4 h-4 bg-gold-500 text-forest-950 font-bold text-[10px] rounded-full flex items-center justify-center ring-2 ring-forest-900">0</span>
       </button>
     </div>
   </header>
@@ -135,76 +164,127 @@
   <!-- Main Atelier Screen Content -->
   <main class="max-w-md mx-auto px-4 pt-4 space-y-6">
 
-    <!-- BEGIN: LivePreviewSection -->
-    <section aria-label="Bespoke Gift Live Preview" class="relative">
-      <div class="relative bg-gradient-to-b from-white via-cream-50 to-cream-200/50 rounded-2xl border border-gold-400/40 p-4 shadow-luxury overflow-hidden">
-        <!-- Subtle gold corner ornamental motifs -->
-        <div class="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-gold-400/50 rounded-tl-sm pointer-events-none"></div>
-        <div class="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-gold-400/50 rounded-tr-sm pointer-events-none"></div>
-        
-        <!-- Live Preview Header with Total Price -->
+    <!-- BEGIN: OfferShowcaseSection (4 Switching Offer Cards styled like screenshot) -->
+    <section aria-label="Bespoke Offers & Live Preview" class="relative space-y-3">
+      <!-- Section Header -->
+      <div class="flex items-center justify-between px-1">
+        <div>
+          <h2 class="font-serif text-base font-bold text-forest-900 flex items-center gap-1.5">
+            <i class="ph ph-sparkle text-gold-600 text-sm"></i>
+            <span>Featured Gift Offers</span>
+          </h2>
+          <p class="text-[11px] text-charcoal-500">4 Curated festive combos & your live custom selection</p>
+        </div>
+
+        <!-- 4 Switching Dots -->
+        <div class="flex items-center gap-1.5" id="offerDots">
+          <button class="offer-dot w-2 h-2 rounded-full bg-forest-900 transition-all scale-125" data-index="0"
+            aria-label="Offer 1"></button>
+          <button class="offer-dot w-2 h-2 rounded-full bg-cream-400 hover:bg-forest-900/60 transition-all"
+            data-index="1" aria-label="Offer 2"></button>
+          <button class="offer-dot w-2 h-2 rounded-full bg-cream-400 hover:bg-forest-900/60 transition-all"
+            data-index="2" aria-label="Offer 3"></button>
+          <button class="offer-dot w-2 h-2 rounded-full bg-cream-400 hover:bg-forest-900/60 transition-all"
+            data-index="3" aria-label="Offer 4"></button>
+        </div>
+      </div>
+
+      <!-- Quick Tab Pills -->
+      <div class="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar text-[11px]">
+        <button
+          class="offer-tab px-3 py-1 rounded-full font-semibold whitespace-nowrap bg-forest-900 text-gold-400 shadow-xs"
+          data-index="0">1. New Year 🌸</button>
+        <button
+          class="offer-tab px-3 py-1 rounded-full font-medium whitespace-nowrap bg-white text-charcoal-700 border border-cream-300 hover:bg-cream-100"
+          data-index="1">2. Birthday 🎂</button>
+        <button
+          class="offer-tab px-3 py-1 rounded-full font-medium whitespace-nowrap bg-white text-charcoal-700 border border-cream-300 hover:bg-cream-100"
+          data-index="2">3. Temple Diya 🪔</button>
+        <button
+          class="offer-tab px-3 py-1 rounded-full font-medium whitespace-nowrap bg-white text-charcoal-700 border border-cream-300 hover:bg-cream-100"
+          data-index="3">4. Organic Wrap 🌿</button>
+      </div>
+
+      <!-- THE CARD (Exact Match to uploaded screenshot) -->
+      <div
+        class="relative bg-gradient-to-b from-white via-cream-50 to-cream-200/50 rounded-3xl border border-cream-200/90 p-4 shadow-luxury overflow-hidden transition-all duration-300"
+        id="showcaseCard">
+        <!-- Top Row: Badge + Price -->
         <div class="flex items-center justify-between pb-3 border-b border-cream-300/80">
-          <div class="flex items-center gap-2">
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-forest-900 text-gold-400 text-[10px] font-semibold tracking-wider uppercase shadow-xs">
-              <span class="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse"></span>
-              Live Bespoke Preview
-            </span>
+          <div
+            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#163E2B] text-[#D8BC7D] text-[10px] font-bold tracking-wider uppercase shadow-xs">
+            <i class="ph ph-sparkle text-xs text-[#D8BC7D]"></i>
+            <span id="cardBadgeText">LIVE GIFT PREVIEW</span>
           </div>
-          <!-- Live Calculated Price Badge -->
-          <div class="text-right">
-            <span class="text-[10px] uppercase tracking-wider text-charcoal-500 font-medium block">Gift Set Price</span>
-            <span id="previewPriceBadge" class="font-serif text-xl font-bold text-forest-900 tracking-tight">₹349</span>
+          <div class="bg-white border border-cream-300 rounded-xl px-3 py-1 shadow-xs">
+            <span id="cardPriceText" class="font-serif text-lg font-bold text-forest-900 tracking-tight">₹319</span>
           </div>
         </div>
 
-        <!-- Visual Atelier Showcase Box -->
-        <div class="my-4 relative bg-gradient-to-b from-cream-100/70 to-cream-200/80 rounded-xl p-3 border border-cream-300/70 flex flex-col items-center">
-          <!-- Selected Mini Plant Pill Float -->
-          <div class="self-start inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm border border-gold-400/30 px-2.5 py-1 rounded-full shadow-xs mb-2">
-            <img id="previewPlantThumb" alt="Selected Plant Miniature" class="w-4 h-4 rounded-full object-cover" src="plants/rose.jpg">
-            <span id="previewPlantTitle" class="text-[11px] font-medium text-forest-900">Red Rose Fragrant Plant</span>
+        <!-- Center Visual Showcase Box -->
+        <div
+          class="my-3.5 relative bg-gradient-to-b from-cream-100/70 to-cream-200/80 rounded-2xl p-3 border border-cream-300/70 flex flex-col items-center">
+          <!-- Floating Mini Plant Pill -->
+          <div
+            class="self-start inline-flex items-center gap-2 bg-white/95 backdrop-blur-sm border border-gold-400/30 px-2.5 py-1 rounded-full shadow-xs mb-2">
+            <img id="cardPlantThumb" alt="Plant miniature" class="w-4 h-4 rounded-full object-cover"
+              src="plants/money_plant.jpg">
+            <span id="cardPlantName" class="text-[11px] font-bold text-forest-900">Money Plant</span>
           </div>
 
-          <!-- Product Composite Presentation (Packaging + Plant + Ribbon) -->
+          <!-- Product Box Image + Floating Tag -->
           <div class="relative w-48 h-56 flex items-center justify-center my-1">
-            <!-- Gift Box Image with cutout window & botanical interior -->
-            <img id="previewBoxImg" alt="Gift Box Presentation" class="w-full h-full object-contain filter drop-shadow-md rounded-lg" src="designs/design3_window_box.png">
-            <!-- Floating Embossed Gold Ribbon / Tag Badge -->
-            <div class="absolute -bottom-2 right-1 bg-gradient-to-r from-gold-500 via-amber-400 to-gold-600 text-forest-950 font-serif font-semibold text-xs tracking-wide px-3 py-1.5 rounded shadow-md border border-amber-200 flex items-center gap-1.5 transform rotate-[-2deg]">
+            <img id="cardBoxImg" alt="Gift Box Presentation"
+              class="w-full h-full object-contain filter drop-shadow-md rounded-lg transition-all duration-300"
+              src="designs/design3_window_box.png">
+            <!-- Embossed Gold Tag Overlay -->
+            <div
+              class="absolute -bottom-2 right-1 bg-gradient-to-r from-gold-500 via-amber-400 to-gold-600 text-forest-950 font-serif font-semibold text-xs tracking-wide px-3 py-1.5 rounded shadow-md border border-amber-200 flex items-center gap-1.5 transform rotate-[-2deg]">
               <i class="ph ph-tag text-forest-950 text-xs"></i>
-              <span id="preview-label-tag">Happy New Year 2027</span>
+              <span id="cardBigLabel">Happy New Year 2027</span>
             </div>
           </div>
 
-          <!-- Handwritten Quote Banner -->
-          <div class="w-full mt-3 pt-2.5 border-t border-dashed border-gold-500/40 text-center">
-            <div class="inline-flex items-center gap-1 text-[11px] text-gold-600 font-semibold uppercase tracking-wider mb-0.5">
-              <i class="ph ph-envelope-open text-xs"></i> Wax-Sealed Message Card
-            </div>
-            <p class="font-serif italic text-xs text-charcoal-700 leading-snug px-2" id="preview-message-text">
-              "Wishing you happiness, good health and prosperity!"
+          <!-- Quote Banner (Stitched Dashed Golden Border) -->
+          <div
+            class="w-full mt-3 bg-[#FAF8F2] border border-dashed border-[#D4AF37]/60 rounded-xl p-2.5 text-center shadow-2xs">
+            <p
+              class="font-serif italic text-xs text-charcoal-800 leading-snug flex items-center justify-center gap-1.5">
+              <i class="ph ph-envelope-open text-xs text-gold-600 flex-shrink-0"></i>
+              <span id="cardQuoteText">"Wishing you happiness, good health and prosperity!"</span>
             </p>
           </div>
         </div>
 
         <!-- Configuration Summary Line -->
-        <div class="bg-forest-900/5 rounded-lg px-3 py-2 flex items-center justify-between text-xs">
-          <div>
-            <span id="summaryBoxName" class="font-semibold text-forest-900">White Window Box</span>
-            <span class="text-charcoal-500 mx-1">+</span>
-            <span id="summaryPlantName" class="font-semibold text-forest-900">Red Rose Plant</span>
+        <div class="pt-1 space-y-1">
+          <h3 id="cardSummaryTitle" class="font-serif font-bold text-sm text-forest-900">White Window Box + Money Plant
+          </h3>
+          <p id="cardSummaryLabel" class="text-xs text-charcoal-600">Big Label: "Happy New Year 2027"</p>
+        </div>
+
+        <!-- Quick Action Row for this Combo -->
+        <div class="mt-3 pt-3 border-t border-cream-200 flex items-center justify-between gap-2">
+          <button id="applyOfferBtn"
+            class="text-xs font-semibold text-gold-700 hover:text-forest-900 bg-gold-400/20 hover:bg-gold-400/30 px-3 py-1.5 rounded-lg border border-gold-400/40 transition-colors flex items-center gap-1">
+            <i class="ph ph-check text-xs font-bold"></i>
+            <span>Apply This Combo</span>
+          </button>
+          <div class="flex items-center gap-1 text-[11px] text-charcoal-400">
+            <i class="ph ph-arrows-clockwise text-xs"></i>
+            <span>Auto-switches every 4s</span>
           </div>
-          <span class="text-[11px] text-gold-700 font-medium bg-gold-400/20 px-2 py-0.5 rounded border border-gold-400/30">Big Tag Attached</span>
         </div>
       </div>
     </section>
-    <!-- END: LivePreviewSection -->
+    <!-- END: OfferShowcaseSection -->
 
     <!-- BEGIN: Step1PackagingSection -->
     <section aria-labelledby="step-1-title" class="bg-white rounded-2xl border border-cream-300/80 p-4 shadow-sm">
       <!-- Step 1 Header -->
       <div class="flex items-center gap-3 mb-4">
-        <span class="w-7 h-7 rounded-full bg-forest-900 text-gold-400 font-serif font-bold text-sm flex items-center justify-center shadow-xs">1</span>
+        <span
+          class="w-7 h-7 rounded-full bg-forest-900 text-gold-400 font-serif font-bold text-sm flex items-center justify-center shadow-xs">1</span>
         <div>
           <h2 class="font-serif text-base font-bold text-forest-900" id="step-1-title">Choose Packaging Style</h2>
           <p class="text-xs text-charcoal-500">Artisan handcrafted presentation boxes & organic wraps</p>
@@ -214,11 +294,14 @@
       <!-- Packaging 2-Column Grid -->
       <div id="packagingGrid" aria-label="Select Gift Packaging Style" class="grid grid-cols-2 gap-3" role="radiogroup">
         <!-- Option 1 (Selected) -->
-        <article class="packaging-card relative group cursor-pointer border-2 border-forest-900 bg-cream-50/70 rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
+        <article
+          class="packaging-card relative group cursor-pointer border-2 border-forest-900 bg-cream-50/70 rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
           data-id="window-box" data-name="White Window Box" data-price="150" data-img="designs/design3_window_box.png">
-          <div class="relative w-full aspect-square rounded-lg overflow-hidden bg-cream-200 mb-2 p-1 flex items-center justify-center">
+          <div
+            class="relative w-full aspect-square rounded-lg overflow-hidden bg-cream-200 mb-2 p-1 flex items-center justify-center">
             <img alt="White Window Box" class="w-full h-full object-contain" src="designs/design3_window_box.png">
-            <span class="radio-indicator absolute top-2 right-2 w-5 h-5 bg-forest-900 text-gold-400 rounded-full flex items-center justify-center shadow">
+            <span
+              class="radio-indicator absolute top-2 right-2 w-5 h-5 bg-forest-900 text-gold-400 rounded-full flex items-center justify-center shadow">
               <i class="ph ph-check text-xs font-bold"></i>
             </span>
           </div>
@@ -233,11 +316,16 @@
         </article>
 
         <!-- Option 2 -->
-        <article class="packaging-card relative group cursor-pointer border border-cream-300 hover:border-gold-500/60 bg-white rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
-          data-id="kalpavriksha" data-name="Kalpavriksha Box" data-price="160" data-img="designs/design1_kalpavriksha.png">
-          <div class="relative w-full aspect-square rounded-lg overflow-hidden bg-cream-200 mb-2 p-1 flex items-center justify-center">
-            <img alt="Kalpavriksha Royal Box" class="w-full h-full object-contain" src="designs/design1_kalpavriksha.png">
-            <span class="radio-indicator absolute top-2 right-2 w-5 h-5 border border-charcoal-400 bg-white/90 rounded-full flex items-center justify-center"></span>
+        <article
+          class="packaging-card relative group cursor-pointer border border-cream-300 hover:border-gold-500/60 bg-white rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
+          data-id="kalpavriksha" data-name="Kalpavriksha Box" data-price="160"
+          data-img="designs/design1_kalpavriksha.png">
+          <div
+            class="relative w-full aspect-square rounded-lg overflow-hidden bg-cream-200 mb-2 p-1 flex items-center justify-center">
+            <img alt="Kalpavriksha Royal Box" class="w-full h-full object-contain"
+              src="designs/design1_kalpavriksha.png">
+            <span
+              class="radio-indicator absolute top-2 right-2 w-5 h-5 border border-charcoal-400 bg-white/90 rounded-full flex items-center justify-center"></span>
           </div>
           <div>
             <h3 class="font-serif text-xs font-bold text-forest-900 leading-tight">Kalpavriksha Box</h3>
@@ -250,11 +338,14 @@
         </article>
 
         <!-- Option 3 -->
-        <article class="packaging-card relative group cursor-pointer border border-cream-300 hover:border-gold-500/60 bg-white rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
+        <article
+          class="packaging-card relative group cursor-pointer border border-cream-300 hover:border-gold-500/60 bg-white rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
           data-id="kraft-pot" data-name="Kraft Paper Pot" data-price="100" data-img="designs/design2_kraft_pot.png">
-          <div class="relative w-full aspect-square rounded-lg overflow-hidden bg-cream-200 mb-2 p-1 flex items-center justify-center">
+          <div
+            class="relative w-full aspect-square rounded-lg overflow-hidden bg-cream-200 mb-2 p-1 flex items-center justify-center">
             <img alt="Kraft Paper Artisan Pot" class="w-full h-full object-contain" src="designs/design2_kraft_pot.png">
-            <span class="radio-indicator absolute top-2 right-2 w-5 h-5 border border-charcoal-400 bg-white/90 rounded-full flex items-center justify-center"></span>
+            <span
+              class="radio-indicator absolute top-2 right-2 w-5 h-5 border border-charcoal-400 bg-white/90 rounded-full flex items-center justify-center"></span>
           </div>
           <div>
             <h3 class="font-serif text-xs font-bold text-forest-900 leading-tight">Kraft Paper Pot</h3>
@@ -267,11 +358,14 @@
         </article>
 
         <!-- Option 4 -->
-        <article class="packaging-card relative group cursor-pointer border border-cream-300 hover:border-gold-500/60 bg-white rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
+        <article
+          class="packaging-card relative group cursor-pointer border border-cream-300 hover:border-gold-500/60 bg-white rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
           data-id="temple-box" data-name="Temple Diya Box" data-price="160" data-img="designs/design4_temple_box.png">
-          <div class="relative w-full aspect-square rounded-lg overflow-hidden bg-cream-200 mb-2 p-1 flex items-center justify-center">
+          <div
+            class="relative w-full aspect-square rounded-lg overflow-hidden bg-cream-200 mb-2 p-1 flex items-center justify-center">
             <img alt="Temple Diya Box" class="w-full h-full object-contain" src="designs/design4_temple_box.png">
-            <span class="radio-indicator absolute top-2 right-2 w-5 h-5 border border-charcoal-400 bg-white/90 rounded-full flex items-center justify-center"></span>
+            <span
+              class="radio-indicator absolute top-2 right-2 w-5 h-5 border border-charcoal-400 bg-white/90 rounded-full flex items-center justify-center"></span>
           </div>
           <div>
             <h3 class="font-serif text-xs font-bold text-forest-900 leading-tight">Temple Diya Box</h3>
@@ -284,11 +378,16 @@
         </article>
 
         <!-- Option 5 -->
-        <article class="packaging-card relative group cursor-pointer border border-cream-300 hover:border-gold-500/60 bg-white rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
-          data-id="celebration-pouch" data-name="Celebration Pouch" data-price="130" data-img="designs/design5_celebration_pouch.png">
-          <div class="relative w-full aspect-square rounded-lg overflow-hidden bg-cream-200 mb-2 p-1 flex items-center justify-center">
-            <img alt="Celebration Silk Pouch" class="w-full h-full object-contain" src="designs/design5_celebration_pouch.png">
-            <span class="radio-indicator absolute top-2 right-2 w-5 h-5 border border-charcoal-400 bg-white/90 rounded-full flex items-center justify-center"></span>
+        <article
+          class="packaging-card relative group cursor-pointer border border-cream-300 hover:border-gold-500/60 bg-white rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
+          data-id="celebration-pouch" data-name="Celebration Pouch" data-price="130"
+          data-img="designs/design5_celebration_pouch.png">
+          <div
+            class="relative w-full aspect-square rounded-lg overflow-hidden bg-cream-200 mb-2 p-1 flex items-center justify-center">
+            <img alt="Celebration Silk Pouch" class="w-full h-full object-contain"
+              src="designs/design5_celebration_pouch.png">
+            <span
+              class="radio-indicator absolute top-2 right-2 w-5 h-5 border border-charcoal-400 bg-white/90 rounded-full flex items-center justify-center"></span>
           </div>
           <div>
             <h3 class="font-serif text-xs font-bold text-forest-900 leading-tight">Celebration Pouch</h3>
@@ -301,11 +400,15 @@
         </article>
 
         <!-- Option 6 -->
-        <article class="packaging-card relative group cursor-pointer border border-cream-300 hover:border-gold-500/60 bg-white rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
-          data-id="carrier-box" data-name="Handle Caddy Box" data-price="140" data-img="designs/design6_carrier_box.png">
-          <div class="relative w-full aspect-square rounded-lg overflow-hidden bg-cream-200 mb-2 p-1 flex items-center justify-center">
+        <article
+          class="packaging-card relative group cursor-pointer border border-cream-300 hover:border-gold-500/60 bg-white rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
+          data-id="carrier-box" data-name="Handle Caddy Box" data-price="140"
+          data-img="designs/design6_carrier_box.png">
+          <div
+            class="relative w-full aspect-square rounded-lg overflow-hidden bg-cream-200 mb-2 p-1 flex items-center justify-center">
             <img alt="Handle Caddy Box" class="w-full h-full object-contain" src="designs/design6_carrier_box.png">
-            <span class="radio-indicator absolute top-2 right-2 w-5 h-5 border border-charcoal-400 bg-white/90 rounded-full flex items-center justify-center"></span>
+            <span
+              class="radio-indicator absolute top-2 right-2 w-5 h-5 border border-charcoal-400 bg-white/90 rounded-full flex items-center justify-center"></span>
           </div>
           <div>
             <h3 class="font-serif text-xs font-bold text-forest-900 leading-tight">Handle Caddy Box</h3>
@@ -324,7 +427,8 @@
     <section aria-labelledby="step-2-title" class="bg-white rounded-2xl border border-cream-300/80 p-4 shadow-sm">
       <!-- Step 2 Header -->
       <div class="flex items-center gap-3 mb-4">
-        <span class="w-7 h-7 rounded-full bg-forest-900 text-gold-400 font-serif font-bold text-sm flex items-center justify-center shadow-xs">2</span>
+        <span
+          class="w-7 h-7 rounded-full bg-forest-900 text-gold-400 font-serif font-bold text-sm flex items-center justify-center shadow-xs">2</span>
         <div>
           <h2 class="font-serif text-base font-bold text-forest-900" id="step-2-title">Choose Plant Variety</h2>
           <p class="text-xs text-charcoal-500">Popular flowering & healthy purifying green plants</p>
@@ -334,11 +438,13 @@
       <!-- Plant Variety 2-Column Grid -->
       <div id="plantsGrid" aria-label="Select Plant Variety" class="grid grid-cols-2 gap-3" role="radiogroup">
         <!-- Plant 1 (Selected) -->
-        <article class="plant-card relative group cursor-pointer border-2 border-forest-900 bg-cream-50/70 rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
+        <article
+          class="plant-card relative group cursor-pointer border-2 border-forest-900 bg-cream-50/70 rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
           data-id="rose" data-name="Red Rose Plant" data-price="199" data-img="plants/rose.jpg">
           <div class="relative w-full aspect-square rounded-lg overflow-hidden bg-cream-200 mb-2">
             <img alt="Classic Fragrant Red Rose" class="w-full h-full object-cover" src="plants/rose.jpg">
-            <span class="radio-indicator absolute top-2 right-2 w-5 h-5 bg-forest-900 text-gold-400 rounded-full flex items-center justify-center shadow">
+            <span
+              class="radio-indicator absolute top-2 right-2 w-5 h-5 bg-forest-900 text-gold-400 rounded-full flex items-center justify-center shadow">
               <i class="ph ph-check text-xs font-bold"></i>
             </span>
           </div>
@@ -353,11 +459,13 @@
         </article>
 
         <!-- Plant 2 -->
-        <article class="plant-card relative group cursor-pointer border border-cream-300 hover:border-gold-500/60 bg-white rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
+        <article
+          class="plant-card relative group cursor-pointer border border-cream-300 hover:border-gold-500/60 bg-white rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
           data-id="jasmine" data-name="Jasmine (Mogra)" data-price="179" data-img="plants/jasmine.jpg">
           <div class="relative w-full aspect-square rounded-lg overflow-hidden bg-cream-200 mb-2">
             <img alt="Jasmine Mogra Flower" class="w-full h-full object-cover" src="plants/jasmine.jpg">
-            <span class="radio-indicator absolute top-2 right-2 w-5 h-5 border border-charcoal-400 bg-white/90 rounded-full flex items-center justify-center"></span>
+            <span
+              class="radio-indicator absolute top-2 right-2 w-5 h-5 border border-charcoal-400 bg-white/90 rounded-full flex items-center justify-center"></span>
           </div>
           <div>
             <h3 class="font-serif text-xs font-bold text-forest-900 leading-tight">Jasmine (Mogra)</h3>
@@ -370,11 +478,13 @@
         </article>
 
         <!-- Plant 3 -->
-        <article class="plant-card relative group cursor-pointer border border-cream-300 hover:border-gold-500/60 bg-white rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
+        <article
+          class="plant-card relative group cursor-pointer border border-cream-300 hover:border-gold-500/60 bg-white rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
           data-id="hibiscus" data-name="Red Hibiscus" data-price="189" data-img="plants/hibiscus.jpg">
           <div class="relative w-full aspect-square rounded-lg overflow-hidden bg-cream-200 mb-2">
             <img alt="Red Hibiscus Bloom" class="w-full h-full object-cover" src="plants/hibiscus.jpg">
-            <span class="radio-indicator absolute top-2 right-2 w-5 h-5 border border-charcoal-400 bg-white/90 rounded-full flex items-center justify-center"></span>
+            <span
+              class="radio-indicator absolute top-2 right-2 w-5 h-5 border border-charcoal-400 bg-white/90 rounded-full flex items-center justify-center"></span>
           </div>
           <div>
             <h3 class="font-serif text-xs font-bold text-forest-900 leading-tight">Red Hibiscus</h3>
@@ -387,11 +497,13 @@
         </article>
 
         <!-- Plant 4 -->
-        <article class="plant-card relative group cursor-pointer border border-cream-300 hover:border-gold-500/60 bg-white rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
+        <article
+          class="plant-card relative group cursor-pointer border border-cream-300 hover:border-gold-500/60 bg-white rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
           data-id="tulasi" data-name="Sacred Tulasi" data-price="149" data-img="plants/tulasi.jpg">
           <div class="relative w-full aspect-square rounded-lg overflow-hidden bg-cream-200 mb-2">
             <img alt="Sacred Tulsi Holy Basil" class="w-full h-full object-cover" src="plants/tulasi.jpg">
-            <span class="radio-indicator absolute top-2 right-2 w-5 h-5 border border-charcoal-400 bg-white/90 rounded-full flex items-center justify-center"></span>
+            <span
+              class="radio-indicator absolute top-2 right-2 w-5 h-5 border border-charcoal-400 bg-white/90 rounded-full flex items-center justify-center"></span>
           </div>
           <div>
             <h3 class="font-serif text-xs font-bold text-forest-900 leading-tight">Sacred Tulasi</h3>
@@ -404,11 +516,13 @@
         </article>
 
         <!-- Plant 5 -->
-        <article class="plant-card relative group cursor-pointer border border-cream-300 hover:border-gold-500/60 bg-white rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
+        <article
+          class="plant-card relative group cursor-pointer border border-cream-300 hover:border-gold-500/60 bg-white rounded-xl p-2.5 transition-all shadow-xs flex flex-col justify-between"
           data-id="money-plant" data-name="Golden Money Plant" data-price="169" data-img="plants/money_plant.jpg">
           <div class="relative w-full aspect-square rounded-lg overflow-hidden bg-cream-200 mb-2">
             <img alt="Money Plant Golden Pothos" class="w-full h-full object-cover" src="plants/money_plant.jpg">
-            <span class="radio-indicator absolute top-2 right-2 w-5 h-5 border border-charcoal-400 bg-white/90 rounded-full flex items-center justify-center"></span>
+            <span
+              class="radio-indicator absolute top-2 right-2 w-5 h-5 border border-charcoal-400 bg-white/90 rounded-full flex items-center justify-center"></span>
           </div>
           <div>
             <h3 class="font-serif text-xs font-bold text-forest-900 leading-tight">Golden Money Plant</h3>
@@ -424,10 +538,12 @@
     <!-- END: Step2PlantVarietySection -->
 
     <!-- BEGIN: Step3PersonalizationSection (from PDF Step 3) -->
-    <section aria-labelledby="step-3-title" class="bg-white rounded-2xl border border-cream-300/80 p-4 shadow-sm space-y-4">
+    <section aria-labelledby="step-3-title"
+      class="bg-white rounded-2xl border border-cream-300/80 p-4 shadow-sm space-y-4">
       <!-- Step 3 Header -->
       <div class="flex items-center gap-3">
-        <span class="w-7 h-7 rounded-full bg-forest-900 text-gold-400 font-serif font-bold text-sm flex items-center justify-center shadow-xs">3</span>
+        <span
+          class="w-7 h-7 rounded-full bg-forest-900 text-gold-400 font-serif font-bold text-sm flex items-center justify-center shadow-xs">3</span>
         <div>
           <h2 class="font-serif text-base font-bold text-forest-900" id="step-3-title">Personalize Big Label & Note</h2>
           <p class="text-xs text-charcoal-500">Foil-stamped gift tag & wax-sealed message card</p>
@@ -441,26 +557,40 @@
           <span>Big Label Tag</span>
           <span class="text-[10px] font-normal text-charcoal-500">(Printed on the outer box tag)</span>
         </label>
-        
+
         <!-- Editable Label Input Field with Pen Icon -->
         <div class="relative">
           <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-charcoal-500">
             <i class="ph ph-pencil-simple-line text-base text-gold-600"></i>
           </span>
-          <input class="block w-full pl-9 pr-3 py-2 bg-cream-50/70 border border-cream-300 rounded-xl text-xs font-serif font-semibold text-forest-900 placeholder-charcoal-400 focus:bg-white focus:outline-none focus:ring-1 focus:ring-gold-500 focus:border-gold-500 transition-colors" 
+          <input
+            class="block w-full pl-9 pr-3 py-2 bg-cream-50/70 border border-cream-300 rounded-xl text-xs font-serif font-semibold text-forest-900 placeholder-charcoal-400 focus:bg-white focus:outline-none focus:ring-1 focus:ring-gold-500 focus:border-gold-500 transition-colors"
             id="big-label-input" placeholder="e.g. Happy New Year 2027" type="text" value="Happy New Year 2027">
         </div>
 
         <!-- Quick Select Occasion Pills -->
         <div class="pt-1">
-          <span class="text-[10px] text-charcoal-500 uppercase font-semibold tracking-wider block mb-1.5">Quick Select Occasions</span>
+          <span class="text-[10px] text-charcoal-500 uppercase font-semibold tracking-wider block mb-1.5">Quick Select
+            Occasions</span>
           <div class="flex items-center gap-1.5 flex-wrap" id="occasionPills">
-            <button class="occasion-pill px-2.5 py-1 rounded-full text-xs font-medium bg-forest-900 text-gold-400 shadow-xs ring-1 ring-forest-900" type="button" data-text="Happy New Year 2027">New Year 2027</button>
-            <button class="occasion-pill px-2.5 py-1 rounded-full text-xs font-medium bg-cream-100 text-charcoal-700 hover:bg-cream-200 border border-cream-300 transition-colors" type="button" data-text="Happy Birthday 🎂">Happy Birthday</button>
-            <button class="occasion-pill px-2.5 py-1 rounded-full text-xs font-medium bg-cream-100 text-charcoal-700 hover:bg-cream-200 border border-cream-300 transition-colors" type="button" data-text="Congratulations ✨">Congratulations</button>
-            <button class="occasion-pill px-2.5 py-1 rounded-full text-xs font-medium bg-cream-100 text-charcoal-700 hover:bg-cream-200 border border-cream-300 transition-colors" type="button" data-text="Warm Welcome 🏡">Warm Welcome</button>
-            <button class="occasion-pill px-2.5 py-1 rounded-full text-xs font-medium bg-cream-100 text-charcoal-700 hover:bg-cream-200 border border-cream-300 transition-colors" type="button" data-text="Best Wishes 🌸">Best Wishes</button>
-            <button class="occasion-pill px-2.5 py-1 rounded-full text-xs font-medium bg-cream-100 text-charcoal-700 hover:bg-cream-200 border border-cream-300 transition-colors" type="button" data-text="With Love 💚">With Love</button>
+            <button
+              class="occasion-pill px-2.5 py-1 rounded-full text-xs font-medium bg-forest-900 text-gold-400 shadow-xs ring-1 ring-forest-900"
+              type="button" data-text="Happy New Year 2027">New Year 2027</button>
+            <button
+              class="occasion-pill px-2.5 py-1 rounded-full text-xs font-medium bg-cream-100 text-charcoal-700 hover:bg-cream-200 border border-cream-300 transition-colors"
+              type="button" data-text="Happy Birthday 🎂">Happy Birthday</button>
+            <button
+              class="occasion-pill px-2.5 py-1 rounded-full text-xs font-medium bg-cream-100 text-charcoal-700 hover:bg-cream-200 border border-cream-300 transition-colors"
+              type="button" data-text="Congratulations ✨">Congratulations</button>
+            <button
+              class="occasion-pill px-2.5 py-1 rounded-full text-xs font-medium bg-cream-100 text-charcoal-700 hover:bg-cream-200 border border-cream-300 transition-colors"
+              type="button" data-text="Warm Welcome 🏡">Warm Welcome</button>
+            <button
+              class="occasion-pill px-2.5 py-1 rounded-full text-xs font-medium bg-cream-100 text-charcoal-700 hover:bg-cream-200 border border-cream-300 transition-colors"
+              type="button" data-text="Best Wishes 🌸">Best Wishes</button>
+            <button
+              class="occasion-pill px-2.5 py-1 rounded-full text-xs font-medium bg-cream-100 text-charcoal-700 hover:bg-cream-200 border border-cream-300 transition-colors"
+              type="button" data-text="With Love 💚">With Love</button>
           </div>
         </div>
       </div>
@@ -475,11 +605,14 @@
           </label>
         </div>
         <div class="relative">
-          <textarea class="block w-full p-3 bg-cream-50/70 border border-cream-300 rounded-xl text-xs font-serif italic text-charcoal-900 placeholder-charcoal-400 focus:bg-white focus:outline-none focus:ring-1 focus:ring-gold-500 focus:border-gold-500 transition-colors leading-relaxed" 
-            id="personal-message" placeholder="Write your bespoke heartfelt greeting here..." rows="3">Wishing you happiness, good health and prosperity!</textarea>
+          <textarea
+            class="block w-full p-3 bg-cream-50/70 border border-cream-300 rounded-xl text-xs font-serif italic text-charcoal-900 placeholder-charcoal-400 focus:bg-white focus:outline-none focus:ring-1 focus:ring-gold-500 focus:border-gold-500 transition-colors leading-relaxed"
+            id="personal-message" placeholder="Write your bespoke heartfelt greeting here..."
+            rows="3">Wishing you happiness, good health and prosperity!</textarea>
         </div>
         <div class="pt-1 flex items-center justify-between text-[11px] text-charcoal-500">
-          <span class="flex items-center gap-1"><i class="ph ph-sparkle text-gold-600"></i> Free wax seal & textured card envelope</span>
+          <span class="flex items-center gap-1"><i class="ph ph-sparkle text-gold-600"></i> Free wax seal & textured
+            card envelope</span>
           <span class="text-gold-700 font-semibold">Included Free</span>
         </div>
       </div>
@@ -488,14 +621,17 @@
 
     <!-- Botanical Atelier Assurance Badge -->
     <div class="flex items-center justify-center gap-4 py-2 text-center text-charcoal-500 text-[11px]">
-      <span class="inline-flex items-center gap-1"><i class="ph ph-shield-check text-gold-600 text-sm"></i> 100% Live Transit Guarantee</span>
-      <span class="inline-flex items-center gap-1"><i class="ph ph-heart text-gold-600 text-sm"></i> Hand-Potted in Konaseema</span>
+      <span class="inline-flex items-center gap-1"><i class="ph ph-shield-check text-gold-600 text-sm"></i> 100% Live
+        Transit Guarantee</span>
+      <span class="inline-flex items-center gap-1"><i class="ph ph-heart text-gold-600 text-sm"></i> Hand-Potted in
+        Konaseema</span>
     </div>
 
   </main>
 
   <!-- BEGIN: StickyBottomBar -->
-  <aside aria-label="Order Action Bar" class="fixed bottom-0 inset-x-0 z-50 bg-cream-50/95 backdrop-blur-md border-t border-cream-300 shadow-dock">
+  <aside aria-label="Order Action Bar"
+    class="fixed bottom-0 inset-x-0 z-50 bg-cream-50/95 backdrop-blur-md border-t border-cream-300 shadow-dock">
     <div class="max-w-md mx-auto px-4 py-3 flex items-center justify-between gap-3">
       <!-- Total Price Summary with Toggle -->
       <div class="flex-1">
@@ -509,42 +645,54 @@
       <!-- Action Buttons -->
       <div class="flex items-center gap-2">
         <!-- Add to Cart CTA -->
-        <button id="addToCartBtn" class="bg-forest-900 hover:bg-forest-800 active:scale-95 text-gold-400 border border-gold-500/40 px-4 py-2.5 rounded-xl font-semibold text-xs tracking-wider uppercase flex items-center gap-1.5 shadow-md transition-all" type="button">
+        <button id="addToCartBtn"
+          class="bg-forest-900 hover:bg-forest-800 active:scale-95 text-gold-400 border border-gold-500/40 px-4 py-2.5 rounded-xl font-semibold text-xs tracking-wider uppercase flex items-center gap-1.5 shadow-md transition-all"
+          type="button">
           <i class="ph ph-shopping-cart-simple text-base text-gold-400"></i>
           <span>Add to Cart</span>
         </button>
 
         <!-- View Cart Button -->
-        <button id="viewCartBtn" class="bg-white hover:bg-cream-100 active:scale-95 text-forest-900 border border-cream-400 px-3 py-2.5 rounded-xl font-medium text-xs flex items-center gap-1.5 shadow-xs transition-all" type="button">
+        <button id="viewCartBtn"
+          class="bg-white hover:bg-cream-100 active:scale-95 text-forest-900 border border-cream-400 px-3 py-2.5 rounded-xl font-medium text-xs flex items-center gap-1.5 shadow-xs transition-all"
+          type="button">
           <i class="ph ph-handbag text-sm"></i>
           <span>Cart</span>
-          <span id="bottomCartCount" class="w-4 h-4 bg-forest-900 text-gold-400 text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
+          <span id="bottomCartCount"
+            class="w-4 h-4 bg-forest-900 text-gold-400 text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
         </button>
       </div>
     </div>
   </aside>
   <!-- END: StickyBottomBar -->
 
-  <!-- Slide-Over Cart Drawer Modal -->
-  <div id="cartBackdrop" class="cart-drawer-backdrop fixed inset-0 bg-forest-950/70 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
-  
-  <div id="cartDrawer" class="cart-drawer-panel fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md h-[88vh] max-h-[88vh] bg-white rounded-t-3xl z-50 shadow-2xl flex flex-col translate-y-full transition-transform duration-300 ease-out overflow-hidden">
-    
-    <!-- Cart Header -->
-    <div class="flex-shrink-0 px-5 py-4 border-b border-cream-300 flex items-center justify-between bg-white">
-      <div class="flex items-center gap-2">
-        <i class="ph ph-handbag text-xl text-forest-900"></i>
-        <h3 class="font-serif font-bold text-base text-forest-900">Your Plant Orders</h3>
-        <span id="cartHeaderQty" class="bg-forest-900/10 text-forest-900 text-[11px] font-bold px-2 py-0.5 rounded-full">0 pcs</span>
+  <!-- Slide-Over Full Screen Cart Panel -->
+  <div id="cartBackdrop"
+    class="cart-drawer-backdrop fixed inset-0 bg-forest-950/60 backdrop-blur-sm z-30 opacity-0 pointer-events-none transition-opacity duration-300">
+  </div>
+
+  <div id="cartDrawer" style="top: 61px;"
+    class="cart-drawer-panel fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-white z-40 flex flex-col translate-y-full transition-transform duration-300 ease-out overflow-hidden shadow-2xl">
+
+    <!-- Cart Header Bar (Below Main Site Header) -->
+    <div class="flex-shrink-0 px-4 py-3 border-b border-cream-300 flex items-center justify-between bg-cream-50">
+      <div class="flex items-center gap-2.5">
+        <button id="closeCartBtn" aria-label="Close Cart"
+          class="w-8 h-8 rounded-full bg-white border border-cream-300 text-charcoal-700 flex items-center justify-center hover:bg-cream-200 transition-colors shadow-xs">
+          <i class="ph ph-arrow-left text-base"></i>
+        </button>
+        <div>
+          <h3 class="font-serif font-bold text-sm text-forest-900 leading-tight">Your Plant Orders</h3>
+          <p class="text-[10px] text-charcoal-500">Review items & enter delivery details</p>
+        </div>
       </div>
-      <button id="closeCartBtn" aria-label="Close Cart" class="w-8 h-8 rounded-full bg-cream-200 text-charcoal-700 flex items-center justify-center hover:bg-cream-300 transition-colors">
-        <i class="ph ph-x text-base"></i>
-      </button>
+      <span id="cartHeaderQty"
+        class="bg-forest-900 text-gold-400 text-xs font-bold px-2.5 py-1 rounded-full shadow-xs">0 pcs</span>
     </div>
 
     <!-- Scrollable Body (Items + Add More + Address Form) -->
     <div class="flex-1 overflow-y-auto smooth-scroll p-4 space-y-4">
-      
+
       <!-- Cart Items List Container -->
       <div id="cartItemsList" class="space-y-3">
         <!-- Dynamic items or empty state -->
@@ -557,7 +705,8 @@
 
       <!-- Add Another Plant Combo Button -->
       <div id="cartAddAnotherWrapper" class="hidden">
-        <button id="cartAddAnotherBtn" class="w-full py-2.5 px-3 rounded-xl border border-dashed border-forest-900/40 text-forest-900 hover:bg-forest-900/5 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors">
+        <button id="cartAddAnotherBtn"
+          class="w-full py-2.5 px-3 rounded-xl border border-dashed border-forest-900/40 text-forest-900 hover:bg-forest-900/5 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors">
           <i class="ph ph-plus-circle text-sm text-gold-600"></i>
           <span>Add Another Plant Combo</span>
         </button>
@@ -573,27 +722,34 @@
         <div class="space-y-2.5">
           <div>
             <label class="block text-[11px] font-semibold text-charcoal-700 mb-1" for="addrName">Full Name *</label>
-            <input id="addrName" type="text" placeholder="Recipient or your name" class="w-full px-3 py-2 text-xs bg-white border border-cream-300 rounded-lg focus:ring-1 focus:ring-gold-500 focus:border-gold-500 outline-none">
+            <input id="addrName" type="text" placeholder="Recipient or your name"
+              class="w-full px-3 py-2 text-xs bg-white border border-cream-300 rounded-lg focus:ring-1 focus:ring-gold-500 focus:border-gold-500 outline-none">
           </div>
 
           <div>
-            <label class="block text-[11px] font-semibold text-charcoal-700 mb-1" for="addrPhone">WhatsApp Mobile Number *</label>
-            <input id="addrPhone" type="tel" maxlength="10" placeholder="10-digit mobile number" class="w-full px-3 py-2 text-xs bg-white border border-cream-300 rounded-lg focus:ring-1 focus:ring-gold-500 focus:border-gold-500 outline-none">
+            <label class="block text-[11px] font-semibold text-charcoal-700 mb-1" for="addrPhone">WhatsApp Mobile Number
+              *</label>
+            <input id="addrPhone" type="tel" maxlength="10" placeholder="10-digit mobile number"
+              class="w-full px-3 py-2 text-xs bg-white border border-cream-300 rounded-lg focus:ring-1 focus:ring-gold-500 focus:border-gold-500 outline-none">
           </div>
 
           <div>
-            <label class="block text-[11px] font-semibold text-charcoal-700 mb-1" for="addrStreet">Full Delivery Address *</label>
-            <textarea id="addrStreet" rows="2" placeholder="House/Flat No., Street, Landmark" class="w-full px-3 py-2 text-xs bg-white border border-cream-300 rounded-lg focus:ring-1 focus:ring-gold-500 focus:border-gold-500 outline-none resize-none"></textarea>
+            <label class="block text-[11px] font-semibold text-charcoal-700 mb-1" for="addrStreet">Full Delivery Address
+              *</label>
+            <textarea id="addrStreet" rows="2" placeholder="House/Flat No., Street, Landmark"
+              class="w-full px-3 py-2 text-xs bg-white border border-cream-300 rounded-lg focus:ring-1 focus:ring-gold-500 focus:border-gold-500 outline-none resize-none"></textarea>
           </div>
 
           <div class="grid grid-cols-2 gap-2">
             <div>
               <label class="block text-[11px] font-semibold text-charcoal-700 mb-1" for="addrCity">City / Town *</label>
-              <input id="addrCity" type="text" value="Amalapuram, Konaseema" class="w-full px-3 py-2 text-xs bg-white border border-cream-300 rounded-lg focus:ring-1 focus:ring-gold-500 focus:border-gold-500 outline-none">
+              <input id="addrCity" type="text" value="Amalapuram, Konaseema"
+                class="w-full px-3 py-2 text-xs bg-white border border-cream-300 rounded-lg focus:ring-1 focus:ring-gold-500 focus:border-gold-500 outline-none">
             </div>
             <div>
               <label class="block text-[11px] font-semibold text-charcoal-700 mb-1" for="addrPincode">Pincode *</label>
-              <input id="addrPincode" type="text" maxlength="6" placeholder="6-digit PIN" class="w-full px-3 py-2 text-xs bg-white border border-cream-300 rounded-lg focus:ring-1 focus:ring-gold-500 focus:border-gold-500 outline-none">
+              <input id="addrPincode" type="text" maxlength="6" placeholder="6-digit PIN"
+                class="w-full px-3 py-2 text-xs bg-white border border-cream-300 rounded-lg focus:ring-1 focus:ring-gold-500 focus:border-gold-500 outline-none">
             </div>
           </div>
         </div>
@@ -602,7 +758,8 @@
     </div>
 
     <!-- Fixed Cart Footer with WhatsApp Checkout -->
-    <div id="cartFooter" class="flex-shrink-0 px-5 py-4 border-t border-cream-300 bg-white shadow-dock space-y-2.5 hidden">
+    <div id="cartFooter"
+      class="flex-shrink-0 px-5 py-4 border-t border-cream-300 bg-white shadow-dock space-y-2.5 hidden">
       <div class="flex items-center justify-between text-xs">
         <span class="text-charcoal-500">Total Gifts:</span>
         <strong id="cartSummaryPcs" class="font-bold text-forest-900">0 pcs</strong>
@@ -617,7 +774,8 @@
       </div>
 
       <!-- WhatsApp Order CTA -->
-      <button id="whatsappOrderBtn" class="w-full bg-[#25D366] hover:bg-[#20bd5a] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 shadow-md transition-all">
+      <button id="whatsappOrderBtn"
+        class="w-full bg-[#25D366] hover:bg-[#20bd5a] active:scale-95 text-white font-bold text-xs uppercase tracking-wider py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 shadow-md transition-all">
         <i class="ph ph-whatsapp-logo text-lg"></i>
         <span>Order via WhatsApp (7794022444)</span>
       </button>
@@ -626,7 +784,8 @@
   </div>
 
   <!-- Toast Notification -->
-  <div id="toastNotification" class="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 bg-forest-950 text-cream-50 px-4 py-2.5 rounded-full text-xs font-semibold shadow-luxury flex items-center gap-2 opacity-0 pointer-events-none transition-all duration-300">
+  <div id="toastNotification"
+    class="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 bg-forest-950 text-cream-50 px-4 py-2.5 rounded-full text-xs font-semibold shadow-luxury flex items-center gap-2 opacity-0 pointer-events-none transition-all duration-300">
     <i class="ph ph-check-circle text-gold-400 text-base"></i>
     <span id="toastMessage">Added to Cart!</span>
   </div>
@@ -701,24 +860,183 @@
       const toastNotification = document.getElementById('toastNotification');
       const toastMessage = document.getElementById('toastMessage');
 
+      // 4 Offer Cards Data (Styled exactly like the uploaded screenshot)
+      const offerCards = [
+        {
+          badge: '1. FESTIVE OFFER',
+          price: 319,
+          plantId: 'money-plant',
+          plantName: 'Money Plant',
+          plantImg: 'plants/money_plant.jpg',
+          boxId: 'window-box',
+          boxName: 'White Window Box',
+          boxImg: 'designs/design3_window_box.png',
+          bigLabel: 'Happy New Year 2027',
+          quote: 'Wishing you happiness, good health and prosperity!',
+          title: 'White Window Box + Money Plant',
+          labelSub: 'Big Label: "Happy New Year 2027"'
+        },
+        {
+          badge: '2. BIRTHDAY SPECIAL',
+          price: 349,
+          plantId: 'rose',
+          plantName: 'Red Rose Plant',
+          plantImg: 'plants/rose.jpg',
+          boxId: 'window-box',
+          boxName: 'White Window Box',
+          boxImg: 'designs/design3_window_box.png',
+          bigLabel: 'Happy Birthday! 🎂',
+          quote: 'May your day bloom with endless happiness and love!',
+          title: 'White Window Box + Red Rose Plant',
+          labelSub: 'Big Label: "Happy Birthday! 🎂"'
+        },
+        {
+          badge: '3. TEMPLE BLESSING PACK',
+          price: 309,
+          plantId: 'tulasi',
+          plantName: 'Sacred Tulasi',
+          plantImg: 'plants/tulasi.jpg',
+          boxId: 'temple-box',
+          boxName: 'Temple Diya Box',
+          boxImg: 'designs/design4_temple_box.png',
+          bigLabel: 'Warm Welcome 🏡',
+          quote: 'May divine blessings and positivity light up your home!',
+          title: 'Temple Diya Box + Sacred Tulasi',
+          labelSub: 'Big Label: "Warm Welcome 🏡"'
+        },
+        {
+          badge: '4. ORGANIC RUSTIC POT',
+          price: 289,
+          plantId: 'hibiscus',
+          plantName: 'Red Hibiscus',
+          plantImg: 'plants/hibiscus.jpg',
+          boxId: 'kraft-pot',
+          boxName: 'Kraft Paper Pot',
+          boxImg: 'designs/design2_kraft_pot.png',
+          bigLabel: 'Best Wishes ✨',
+          quote: 'Rooted in nature, wrapped with pure love from Konaseema!',
+          title: 'Kraft Paper Pot + Red Hibiscus',
+          labelSub: 'Big Label: "Best Wishes ✨"'
+        }
+      ];
+
+      let currentOfferIndex = 0;
+      let offerAutoInterval = null;
+
+      const cardBadgeText = document.getElementById('cardBadgeText');
+      const cardPriceText = document.getElementById('cardPriceText');
+      const cardPlantThumb = document.getElementById('cardPlantThumb');
+      const cardPlantName = document.getElementById('cardPlantName');
+      const cardBoxImg = document.getElementById('cardBoxImg');
+      const cardBigLabel = document.getElementById('cardBigLabel');
+      const cardQuoteText = document.getElementById('cardQuoteText');
+      const cardSummaryTitle = document.getElementById('cardSummaryTitle');
+      const cardSummaryLabel = document.getElementById('cardSummaryLabel');
+      const offerDots = document.querySelectorAll('.offer-dot');
+      const offerTabs = document.querySelectorAll('.offer-tab');
+      const applyOfferBtn = document.getElementById('applyOfferBtn');
+
+      function displayOfferCard(idx) {
+        currentOfferIndex = idx;
+        const data = offerCards[idx];
+
+        if (cardBadgeText) cardBadgeText.textContent = data.badge;
+        if (cardPriceText) cardPriceText.textContent = `₹${data.price}`;
+        if (cardPlantThumb) cardPlantThumb.src = data.plantImg;
+        if (cardPlantName) cardPlantName.textContent = data.plantName;
+        if (cardBoxImg) cardBoxImg.src = data.boxImg;
+        if (cardBigLabel) cardBigLabel.textContent = data.bigLabel;
+        if (cardQuoteText) cardQuoteText.textContent = `"${data.quote}"`;
+        if (cardSummaryTitle) cardSummaryTitle.textContent = data.title;
+        if (cardSummaryLabel) cardSummaryLabel.textContent = data.labelSub;
+
+        // Update dots
+        offerDots.forEach((dot, i) => {
+          if (i === idx) {
+            dot.className = 'offer-dot w-2 h-2 rounded-full bg-forest-900 transition-all scale-125';
+          } else {
+            dot.className = 'offer-dot w-2 h-2 rounded-full bg-cream-400 hover:bg-forest-900/60 transition-all';
+          }
+        });
+
+        // Update tabs
+        offerTabs.forEach((tab, i) => {
+          if (i === idx) {
+            tab.className = 'offer-tab px-3 py-1 rounded-full font-semibold whitespace-nowrap bg-forest-900 text-gold-400 shadow-xs';
+          } else {
+            tab.className = 'offer-tab px-3 py-1 rounded-full font-medium whitespace-nowrap bg-white text-charcoal-700 border border-cream-300 hover:bg-cream-100';
+          }
+        });
+      }
+
+      function startOfferAutoSwitch() {
+        clearInterval(offerAutoInterval);
+        offerAutoInterval = setInterval(() => {
+          const next = (currentOfferIndex + 1) % offerCards.length;
+          displayOfferCard(next);
+        }, 4000);
+      }
+
+      offerDots.forEach((dot) => {
+        dot.addEventListener('click', () => {
+          const idx = parseInt(dot.dataset.index, 10);
+          displayOfferCard(idx);
+          startOfferAutoSwitch();
+        });
+      });
+
+      offerTabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+          const idx = parseInt(tab.dataset.index, 10);
+          displayOfferCard(idx);
+          startOfferAutoSwitch();
+        });
+      });
+
+      // Apply Offer Button: loads this combo into customizer Step 1, 2, 3
+      if (applyOfferBtn) {
+        applyOfferBtn.addEventListener('click', () => {
+          const offer = offerCards[currentOfferIndex];
+
+          // Trigger packaging selection
+          const targetBoxCard = document.querySelector(`.packaging-card[data-id="${offer.boxId}"]`);
+          if (targetBoxCard) targetBoxCard.click();
+
+          // Trigger plant selection
+          const targetPlantCard = document.querySelector(`.plant-card[data-id="${offer.plantId}"]`);
+          if (targetPlantCard) targetPlantCard.click();
+
+          // Set big label & message
+          if (bigLabelInput) bigLabelInput.value = offer.bigLabel;
+          currentBigLabel = offer.bigLabel;
+
+          if (personalMessageInput) personalMessageInput.value = offer.quote;
+          currentPersonalMsg = offer.quote;
+
+          updatePreview();
+          showToast(`Applied ${offer.boxName} + ${offer.plantName} offer!`);
+        });
+      }
+
+      // Start initial
+      displayOfferCard(0);
+      startOfferAutoSwitch();
+
       // Update Live Preview & Prices
       function updatePreview() {
         const total = selectedBox.price + selectedPlant.price;
-
-        if (previewBoxImg) previewBoxImg.src = selectedBox.img;
-        if (previewPlantThumb) previewPlantThumb.src = selectedPlant.img;
-        if (previewPlantTitle) previewPlantTitle.textContent = `${selectedPlant.name}`;
-        if (previewPriceBadge) previewPriceBadge.textContent = `₹${total}`;
         if (bottomTotalPrice) bottomTotalPrice.textContent = `₹${total}`;
 
-        if (summaryBoxName) summaryBoxName.textContent = selectedBox.name;
-        if (summaryPlantName) summaryPlantName.textContent = selectedPlant.name;
-
-        const label = currentBigLabel.trim() || 'Custom Gift Tag';
-        if (previewLabelTag) previewLabelTag.textContent = label;
-
-        const msg = currentPersonalMsg.trim() || 'Wishing you happiness and prosperity!';
-        if (previewMessageText) previewMessageText.textContent = `"${msg}"`;
+        // Also live update the showcase card with user custom choices
+        if (cardBadgeText) cardBadgeText.textContent = 'YOUR CUSTOM COMBO';
+        if (cardPriceText) cardPriceText.textContent = `₹${total}`;
+        if (cardPlantThumb) cardPlantThumb.src = selectedPlant.img;
+        if (cardPlantName) cardPlantName.textContent = selectedPlant.name;
+        if (cardBoxImg) cardBoxImg.src = selectedBox.img;
+        if (cardBigLabel) cardBigLabel.textContent = currentBigLabel.trim() || 'Custom Gift Tag';
+        if (cardQuoteText) cardQuoteText.textContent = `"${currentPersonalMsg.trim() || 'Wishing you happiness and prosperity!'}"`;
+        if (cardSummaryTitle) cardSummaryTitle.textContent = `${selectedBox.name} + ${selectedPlant.name}`;
+        if (cardSummaryLabel) cardSummaryLabel.textContent = `Big Label: "${currentBigLabel.trim() || 'Custom Gift Tag'}"`;
       }
 
       // Step 1: Packaging Card Selection
@@ -845,8 +1163,20 @@
         }, 2200);
       }
 
+      // Header & Cart Sync
+      const mainHeaderEl = document.querySelector('header');
+      function syncCartDrawerTop() {
+        if (mainHeaderEl && cartDrawer) {
+          const h = mainHeaderEl.offsetHeight || 61;
+          cartDrawer.style.top = `${h}px`;
+        }
+      }
+      window.addEventListener('resize', syncCartDrawerTop);
+      syncCartDrawerTop();
+
       // Cart Drawer Toggle
       function openCart() {
+        syncCartDrawerTop();
         renderCart();
         cartDrawer.classList.remove('translate-y-full');
         cartBackdrop.classList.remove('opacity-0', 'pointer-events-none');
@@ -860,7 +1190,15 @@
       }
 
       if (viewCartBtn) viewCartBtn.addEventListener('click', openCart);
-      if (headerCartBtn) headerCartBtn.addEventListener('click', openCart);
+      if (headerCartBtn) {
+        headerCartBtn.addEventListener('click', () => {
+          if (cartDrawer.classList.contains('translate-y-full')) {
+            openCart();
+          } else {
+            closeCart();
+          }
+        });
+      }
       if (closeCartBtn) closeCartBtn.addEventListener('click', closeCart);
       if (cartBackdrop) cartBackdrop.addEventListener('click', closeCart);
 
@@ -878,7 +1216,7 @@
           const label = currentBigLabel.trim() || 'Happy New Year 2027';
           const msg = currentPersonalMsg.trim() || 'Wishing you happiness and prosperity!';
 
-          const existingIndex = cart.findIndex(item => 
+          const existingIndex = cart.findIndex(item =>
             item.box.id === selectedBox.id &&
             item.plant.id === selectedPlant.id &&
             item.bigLabel === label &&
@@ -1080,7 +1418,7 @@
       }
 
       function escapeHtml(str) {
-        return str.replace(/[&<>'"]/g, 
+        return str.replace(/[&<>'"]/g,
           tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
         );
       }
@@ -1091,4 +1429,5 @@
   </script>
 
 </body>
+
 </html>
