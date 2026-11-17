@@ -1,0 +1,15 @@
+{
+  "name": "konaseema-greens",
+  "version": "1.0.0",
+  "description": "Konaseema Greens Plant Gifting Website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
